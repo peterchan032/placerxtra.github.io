@@ -60,11 +60,12 @@ map.on('load', function(){
   });
 
 // Create a popup, but don't add it to the map yet.
+/*
 const popup = new mapboxgl.Popup({
   closeButton: false,
   closeOnClick: false
 });
-
+*/
 
 /*------------------------ household income ----------------*/
 	map.addLayer({
@@ -142,23 +143,6 @@ map.on('mouseleave', 'Median Household Income', (e) => {
   hoveredStateId = null;
 });
 
-map.on("mouseenter", "Median Household Income", function(e) {
-
-  var description = '<h3>Median Household Income</h3>'+
-            `<h4>${Math.round(e.features[0].properties.HHI).toLocaleString("en-US", {style:"currency", currency:"USD"})}</h4>` 
-            +'<p> </p>';
-
-  // Populate the popup and set its coordinates
-  // based on the feature found.
-  popup
-    .setLngLat(e.lngLat)
-    .setHTML(description)
-    .addTo(map);
-});
-
-map.on("mouseleave", "Median Household Income", function() {
-  popup.remove();
-});
 
 /*------------------------ population density ----------------*/
 
@@ -279,7 +263,7 @@ map.on('mouseleave', 'Population Density', (e) => {
 
 
 /*------------------- click to popup text boxes ----------------------*/
-    map.on('mouseenter', function (e) {
+    map.on('click', function (e) {
     //Household Income feature layers
     var featrues_HHI = map.queryRenderedFeatures(e.point, {
       layers: ['Median Household Income'] // replace this with the name of the layer
@@ -289,7 +273,8 @@ map.on('mouseleave', 'Population Density', (e) => {
       var features = featrues_HHI[0];
       var description = 
       '<h3>Median Household Income</h3>'+
-            `<h4>${Math.round(features.properties.HHI).toLocaleString("en-US", {style:"currency", currency:"USD"})}</h4>` 
+            `<h4>${Math.round(features.properties.HHI).toLocaleString("en-US", {style:"currency", currency:"USD",
+              minimumFractionDigits: 0, maximumFractionDigits: 0,})}</h4>` 
             +'<p> </p>' 
 
     var popup = new mapboxgl.Popup({offset: [0, -15],keepInView:true})
@@ -323,77 +308,8 @@ map.on('mouseleave', 'Population Density', (e) => {
   });
 
 
-  map.on('mouseleave',function(e) {
-    popup.remove();
-  });
 
 
-
-/*--------------------- function to turn on/off point/density layer ----------------*/
-  // After the last frame rendered before the map enters an "idle" state.
-  /*
-  map.on('idle', () => {
-  // If these two layers were not added to the map, abort
-  if (!map.getLayer('Median Household Income') || !map.getLayer('Population Density' )  
- ) {
-  return;
-  }
-
-  // Enumerate ids of the layers.
-  const toggleableLayerIds = ['Median Household Income','Population Density'];
-
-  // Set up the corresponding toggle button for each layer.
-  for (const id of toggleableLayerIds) {
-  // Skip layers that already have a button set up.
-  if (document.getElementById(id)) {
-  continue;
-  }
-
-  // Create a link.
-  const link = document.createElement('a');
-  link.id = id;
-  link.href = '#';
-  link.textContent = id; 
-  link.className = 'active';
-
-  // Show or hide layer when the toggle is clicked.
-  link.onclick = function (e) {
-    const clickedLayer = this.textContent;
-    e.preventDefault();
-    e.stopPropagation();
-
-  const visibility = map.getLayoutProperty(
-    clickedLayer, 
-    'visibility'
-  );
-
-
-  // Toggle layer visibility by changing the layout object's visibility property.
-  if (visibility === 'visible') {
-    map.setLayoutProperty(clickedLayer, 'visibility', 'none');
-
-
-    this.className = '';
-
-
-  } else {
-    this.className = 'active';
-    map.setLayoutProperty(
-      clickedLayer,
-      'visibility',
-      'visible'
-      );
-
-    }
-  };
-
-  const layers = document.getElementById('menu');
-  layers.appendChild(link);
-  }
-
-
-  });
-*/
 /*---------------------- click to show demographic layers and their legends ---------*/
   const HHI_legend = document.getElementById('HHI-legend');
   const popD_legend = document.getElementById('popD-legend');
@@ -427,7 +343,8 @@ map.on('mouseleave', 'Population Density', (e) => {
 
 
 // Add zoom and rotation controls to the map.
-  map.addControl(new mapboxgl.NavigationControl(),'bottom-right');
+  map.addControl(new mapboxgl.NavigationControl(),'top-right');
+
 
 // Change the cursor to a pointer when the mouse is over the states layer.
   map.on('mouseenter','Median Household Income', function () {
