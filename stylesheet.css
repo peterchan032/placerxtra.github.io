@@ -5,7 +5,7 @@
 /*--------------header------------------*/
 .header {
     position: static;
-    width: 1110px;
+    width: auto;
     height: 48px;
     left: 16px;
     top: 20px;
@@ -23,7 +23,7 @@
     margin: 0px 0px;
 
     font-family: font-family: 'Open Sans', sans-serif;
-    font-size: 19px;
+    font-size: 115%;
     line-height: 20px;
     margin-top: 15px;
     margin-left: 5px;
@@ -69,9 +69,9 @@
 
 #logo {
     position: absolute;
-    right: 10px;
-    width: 8%;
-    height: auto;
+    right: 3%;
+    width: auto;
+    height: 4%;
     display: inline-block;
     margin-right: 5px;
     top: 6px;
@@ -81,9 +81,10 @@
 /*---------------footer-------------*/
 .footer {
     position: absolute;
-    bottom: 0px;
-    height: 15px;
-    width: 100%;
+    display: inline-block;
+    bottom: 0;
+    height: 10px;
+    width: auto;
 
     /* background/Background/Normal */
 
@@ -182,11 +183,11 @@ a {
         align-items: flex-start;
         padding: 0px;
 
-        position: relative;
-        width: 344px;
-        height: 38px;
-        left: 450px;
-        top: 10px;
+        position: absolute;
+
+        height: 30px;
+        left: 27%;
+        top: 8%;
 
 
         /* Inside auto layout */
@@ -194,160 +195,7 @@ a {
         flex: none;
         order: 2;
         flex-grow: 0;
-        margin: 0px 16px;
-    }
-
-
-    .buttons #HHI{
-        /* Pill */
-
-        /* Auto layout */
-
-        display: flex;
-        flex-direction: row;
-        justify-content: center;
-        align-items: center;
-        padding: 9px 12px;
-
-        position: static;
-        width: 145px;
-        height: 50px;
-        left: 300px;
-        top: 20px;
-
-        /* white */
-
-        background: #FFFFFF;
-        /* lines-outlines/divider-section */
-
-        border: 1px solid #D0D0D0;
-        box-sizing: border-box;
-        /* Component Shadow */
-
-        box-shadow: 0px 2px 3px rgba(0, 0, 0, 0.1);
-        border-radius: 6px;
-
-        /* Inside auto layout */
-
-        flex: none;
-        order: 3;
-        flex-grow: 0;
-        margin: 0px 8px;
-
-    }
-
-    .buttons #PopD{
-        /* Pill */
-
-        /* Auto layout */
-
-        display: flex;
-        flex-direction: row;
-        justify-content: center;
-        align-items: center;
-        padding: 9px 12px;
-
-        position: static;
-        width: 100px;
-        height: 50px;
-        left: 197px;
-        top: 20px;
-
-        /* white */
-
-        background: #FFFFFF;
-        /* lines-outlines/divider-section */
-
-        border: 1px solid #D0D0D0;
-        box-sizing: border-box;
-        /* Component Shadow */
-
-        box-shadow: 0px 2px 3px rgba(0, 0, 0, 0.1);
-        border-radius: 6px;
-
-        /* Inside auto layout */
-
-        flex: none;
-        order: 3;
-        flex-grow: 0;
-        margin: 0px 8px;
-
-    }
-
-    .buttons #Age{
-        /* Pill */
-
-        /* Auto layout */
-
-        display: flex;
-        flex-direction: row;
-        justify-content: center;
-        align-items: center;
-        padding: 9px 12px;
-
-        position: static;
-        width: 100px;
-        height: 50px;
-        left: 100px;
-        top: 20px;
-
-        /* white */
-
-        background: #FFFFFF;
-        /* lines-outlines/divider-section */
-
-        border: 1px solid #D0D0D0;
-        box-sizing: border-box;
-        /* Component Shadow */
-
-        box-shadow: 0px 2px 3px rgba(0, 0, 0, 0.1);
-        border-radius: 6px;
-
-        /* Inside auto layout */
-
-        flex: none;
-        order: 3;
-        flex-grow: 0;
-        margin: 0px 8px;
-
-    }
-
-    .buttons #HHV{
-        /* Pill */
-
-        /* Auto layout */
-
-        display: flex;
-        flex-direction: row;
-        justify-content: center;
-        align-items: center;
-        padding: 9px 12px;
-
-        position: static;
-        width: 145px;
-        height: 50px;
-        left: 350px;
-        top: 20px;
-
-        /* white */
-
-        background: #FFFFFF;
-        /* lines-outlines/divider-section */
-
-        border: 1px solid #D0D0D0;
-        box-sizing: border-box;
-        /* Component Shadow */
-
-        box-shadow: 0px 2px 3px rgba(0, 0, 0, 0.1);
-        border-radius: 6px;
-
-        /* Inside auto layout */
-
-        flex: none;
-        order: 3;
-        flex-grow: 0;
-        margin: 0px 8px;
-
+        margin: 0px 0px;
     }
 
 
@@ -356,9 +204,46 @@ a {
         font-family: 'Open Sans', sans-serif;
         font-style: normal;
         font-weight: bold;
-        font-size: 13px;
+        font-size: 14px;
         line-height: 16px;
     }
+
+
+    .buttons #HHI, .buttons #PopD, 
+    .buttons #Age, .buttons #HHV {
+        /* Pill */
+
+        /* Auto layout */
+
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        padding: 9px 12px;
+
+        width: 24%;
+        height: 45px;
+        /* white */
+
+        background: #FFFFFF;
+        /* lines-outlines/divider-section */
+
+        border: 1px solid #D0D0D0;
+        box-sizing: border-box;
+        /* Component Shadow */
+
+        box-shadow: 0px 2px 3px rgba(0, 0, 0, 0.1);
+        border-radius: 6px;
+
+        /* Inside auto layout */
+
+        flex: none;
+        order: 3;
+        flex-grow: 0;
+        margin: 0px 8px;
+
+    }
+
 
     #HHI:focus, #PopD:focus {
         background-color: #49565D;
@@ -413,19 +298,20 @@ a {
 
 
 .mapboxgl-popup-content {
-  font: 400 15px/20px 'Open Sans', sans-serif;
+  font: 400 15px/16px 'Open Sans', sans-serif;
   padding: 0;
-  width: 180px;
+  width: 120px;
 }
 
 .mapboxgl-popup-content h3 {
-  background: #5E63E5;
-  color: #fff;
+ /* background: #5E63E5; */
+  color: #4D4D4D;
   margin: 0;
   padding: 10px;
   border-radius: 3px 3px 0 0;
   font-weight: 600;
-  margin-top: -15px;
+  font-size: 14px;
+
 }
 
 .mapboxgl-popup-content h4 {
@@ -434,6 +320,7 @@ a {
   font-weight: 400;
   justify-content: center;
   align-items: center;
+  font-size: 12px;
 }
 
 .mapboxgl-popup-content div {
@@ -441,11 +328,11 @@ a {
 }
 
 .mapboxgl-popup-anchor-top > .mapboxgl-popup-content {
-  margin-top: 15px;
+  margin-top: -1px;
 }
 
 .mapboxgl-popup-anchor-top > .mapboxgl-popup-tip {
-  border-bottom-color: #5E63E5;
+  border-bottom-color: #fff;
 }
 
 
