@@ -1,0 +1,454 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&display=swap');
+
+
+/*--------------header------------------*/
+.header {
+    position: static;
+    width: 1110px;
+    height: 48px;
+    left: 16px;
+    top: 20px;
+    bottom: 0px;
+
+    /* background/Background/Normal */
+
+    background: #FFFFFF;
+
+    /* Inside auto layout */
+
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+    margin: 0px 0px;
+
+    font-family: font-family: 'Open Sans', sans-serif;
+    font-size: 19px;
+    line-height: 20px;
+    margin-top: 15px;
+    margin-left: 5px;
+    font-weight: bold;
+    top: 15px;
+}
+
+
+
+.property{
+    display: inline-block;
+    position: absolute;
+    left: 200px;
+    top: 15px;  
+
+    font-family: font-family: 'Open Sans', sans-serif;
+    font-size: 20px;
+    line-height: 20px;
+    margin-top: 0px;
+    margin-left: 15px;
+    font-weight: bold;
+}
+
+
+.verticalLine {
+    position: absolute;
+    display: inline-block;
+    width: 34px;
+    height: 0px;
+    left: 180px;
+    top: 22px;  
+
+    border: 1px solid #D0D0D0;
+    transform: rotate(-90deg);
+
+    /* Inside auto layout */
+
+    flex: none;
+    order: 1;
+    flex-grow: 0;
+    margin: 0px 0px 0px 0px;
+}
+
+#logo {
+    position: absolute;
+    right: 10px;
+    width: 8%;
+    height: auto;
+    display: inline-block;
+    margin-right: 5px;
+    top: 6px;
+
+}
+
+/*---------------footer-------------*/
+.footer {
+    position: absolute;
+    bottom: 0px;
+    height: 15px;
+    width: 100%;
+
+    /* background/Background/Normal */
+
+    background: #FFFFFF;
+
+    font-family: font-family: 'Open Sans', sans-serif;
+    font-size: 11px;
+    line-height: 20px;
+    margin-top: 0px;
+    margin-left: 2px;
+    font-weight: 600;
+
+}
+
+
+
+/*--------------------------------*/
+#map {
+    position: absolute;
+    top: 48px;
+    bottom: 0;
+    width: 100%;
+}
+
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: font-family: 'Open Sans', sans-serif;
+      }
+
+h1 {
+    font-size: 20px;
+    line-height: 30px;
+    font-weight: bold;
+    margin-top: 5px;
+    }
+
+a {
+    text-decoration: none;
+    color: #2dc4b2;
+   }
+
+
+/*-----------------layer selections-----------*/
+    #menu {
+        float: right;
+        background: #fff;
+        position: relative;
+        z-index: 1;
+        top: 10px;
+        right: 10px;
+        border-radius: 8px;
+        width: 220px;
+        border: 1px solid rgba(0, 0, 0, 0.4);
+        font-family: 'Open Sans', sans-serif;
+        font-weight: 600;
+        }
+
+    #menu a {
+        font-size: 17px;
+        color: #404040;
+        display: block;
+        margin: 0px;
+        padding: 0px;
+        text-decoration: none;
+        border-bottom: 1px solid rgba(0, 0, 0, 0.25);
+        text-align: center;
+        }
+
+    #menu a:last-child {
+        border: none;
+    }
+
+    #menu a:hover {
+        background-color: #f8f8f8;
+        color: #404040;
+    }
+
+    #menu a.active {
+        background-color: #3887be;
+        color: #ffffff;
+    }
+
+    #menu a.active:hover {
+        background: #3074a4;
+    }
+
+
+
+    .buttons{
+        /* Auto layout */
+
+        display: flex;
+        flex-direction: row;
+        align-items: flex-start;
+        padding: 0px;
+
+        position: relative;
+        width: 344px;
+        height: 38px;
+        left: 450px;
+        top: 10px;
+
+
+        /* Inside auto layout */
+
+        flex: none;
+        order: 2;
+        flex-grow: 0;
+        margin: 0px 16px;
+    }
+
+
+    .buttons #HHI{
+        /* Pill */
+
+        /* Auto layout */
+
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        padding: 9px 12px;
+
+        position: static;
+        width: 145px;
+        height: 50px;
+        left: 300px;
+        top: 20px;
+
+        /* white */
+
+        background: #FFFFFF;
+        /* lines-outlines/divider-section */
+
+        border: 1px solid #D0D0D0;
+        box-sizing: border-box;
+        /* Component Shadow */
+
+        box-shadow: 0px 2px 3px rgba(0, 0, 0, 0.1);
+        border-radius: 6px;
+
+        /* Inside auto layout */
+
+        flex: none;
+        order: 3;
+        flex-grow: 0;
+        margin: 0px 8px;
+
+    }
+
+    .buttons #PopD{
+        /* Pill */
+
+        /* Auto layout */
+
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        padding: 9px 12px;
+
+        position: static;
+        width: 100px;
+        height: 50px;
+        left: 197px;
+        top: 20px;
+
+        /* white */
+
+        background: #FFFFFF;
+        /* lines-outlines/divider-section */
+
+        border: 1px solid #D0D0D0;
+        box-sizing: border-box;
+        /* Component Shadow */
+
+        box-shadow: 0px 2px 3px rgba(0, 0, 0, 0.1);
+        border-radius: 6px;
+
+        /* Inside auto layout */
+
+        flex: none;
+        order: 3;
+        flex-grow: 0;
+        margin: 0px 8px;
+
+    }
+
+    .buttons #Age{
+        /* Pill */
+
+        /* Auto layout */
+
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        padding: 9px 12px;
+
+        position: static;
+        width: 100px;
+        height: 50px;
+        left: 100px;
+        top: 20px;
+
+        /* white */
+
+        background: #FFFFFF;
+        /* lines-outlines/divider-section */
+
+        border: 1px solid #D0D0D0;
+        box-sizing: border-box;
+        /* Component Shadow */
+
+        box-shadow: 0px 2px 3px rgba(0, 0, 0, 0.1);
+        border-radius: 6px;
+
+        /* Inside auto layout */
+
+        flex: none;
+        order: 3;
+        flex-grow: 0;
+        margin: 0px 8px;
+
+    }
+
+    .buttons #HHV{
+        /* Pill */
+
+        /* Auto layout */
+
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        padding: 9px 12px;
+
+        position: static;
+        width: 145px;
+        height: 50px;
+        left: 350px;
+        top: 20px;
+
+        /* white */
+
+        background: #FFFFFF;
+        /* lines-outlines/divider-section */
+
+        border: 1px solid #D0D0D0;
+        box-sizing: border-box;
+        /* Component Shadow */
+
+        box-shadow: 0px 2px 3px rgba(0, 0, 0, 0.1);
+        border-radius: 6px;
+
+        /* Inside auto layout */
+
+        flex: none;
+        order: 3;
+        flex-grow: 0;
+        margin: 0px 8px;
+
+    }
+
+
+    .buttons h4{
+        /* font */
+        font-family: 'Open Sans', sans-serif;
+        font-style: normal;
+        font-weight: bold;
+        font-size: 13px;
+        line-height: 16px;
+    }
+
+    #HHI:focus, #PopD:focus {
+        background-color: #49565D;
+        color: #ffffff;
+    }
+
+    #HHI:hover, #PopD:hover, #Age:hover, #HHV:hover  {
+        background-color: #49565D;
+        color: #ffffff;
+    }
+
+
+
+
+/*------------------legend ----------------------*/
+.legend {
+    background-color: #fff;
+    border-radius: 3px;
+    bottom: 40px;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+    font-family: 'Open Sans', sans-serif;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 13px;
+    line-height: 20px;
+    padding: 10px;
+    position: absolute;
+    left: 10px;
+    z-index: 1;
+}
+
+.legend h4 {
+    font-size: 14px;
+    margin: 0 0 10px;
+    font-weight: bold;
+}
+
+.legend p {
+    font-size: 10px;
+    margin-bottom: -10px;
+}
+ 
+.legend div span {
+    border-radius: 50%;
+    display: inline-block;
+    height: 10px;
+    margin-right: 5px;
+    width: 10px;
+}
+
+/*--------------------Pop up ----------------------*/
+
+
+.mapboxgl-popup-content {
+  font: 400 15px/20px 'Open Sans', sans-serif;
+  padding: 0;
+  width: 180px;
+}
+
+.mapboxgl-popup-content h3 {
+  background: #5E63E5;
+  color: #fff;
+  margin: 0;
+  padding: 10px;
+  border-radius: 3px 3px 0 0;
+  font-weight: 600;
+  margin-top: -15px;
+}
+
+.mapboxgl-popup-content h4 {
+  margin: 0;
+  padding: 10px;
+  font-weight: 400;
+  justify-content: center;
+  align-items: center;
+}
+
+.mapboxgl-popup-content div {
+  padding: 10px;
+}
+
+.mapboxgl-popup-anchor-top > .mapboxgl-popup-content {
+  margin-top: 15px;
+}
+
+.mapboxgl-popup-anchor-top > .mapboxgl-popup-tip {
+  border-bottom-color: #5E63E5;
+}
+
+
+
+
+
