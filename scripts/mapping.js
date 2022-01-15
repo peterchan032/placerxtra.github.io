@@ -163,13 +163,13 @@ map.on('mouseleave', 'Median Household Income', (e) => {
         "interpolate",
         ["linear"],
         ["get", "popDensity"],
-        8539,
+        3278,
         "#ffffb3",
-        23541,
+        8539,
         "#fecc5c",
-        106468,
+        23541,
         "#fd8d3c",
-        177682,
+        56185,
         "#f03b20",
         499356,
         "#bd0026"
@@ -293,8 +293,8 @@ map.on('mouseleave', 'Population Density', (e) => {
     if (featrues_pop.length >0){
       var features = featrues_pop[0];
       var description = 
-      '<h3>Population Density (per square miles)</h3>'+ 
-      `<h4>${Math.round(features.properties.popDensity).toLocaleString()}</h4>`
+      '<h3>Population Density</h3>'+ 
+      `<h4>${Math.round(features.properties.popDensity).toLocaleString()} (per sq. mi)</h4>`
       +'<p> </p>' 
 
     var popup = new mapboxgl.Popup({offset: [0, -15],keepInView:true})
@@ -313,6 +313,7 @@ map.on('mouseleave', 'Population Density', (e) => {
 /*---------------------- click to show demographic layers and their legends ---------*/
   const HHI_legend = document.getElementById('HHI-legend');
   const popD_legend = document.getElementById('popD-legend');
+  popD_legend.style.display = 'none';
   document.getElementById('HHI').addEventListener('click',() => {
 
     map.setLayoutProperty('Median Household Income','visibility','visible');

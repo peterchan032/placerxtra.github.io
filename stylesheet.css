@@ -6,7 +6,7 @@
 .header {
     position: static;
     width: auto;
-    height: 48px;
+    height: 49px;
 }
 
 #title{
@@ -124,7 +124,7 @@
 /*--------------------------------*/
 #map {
     position: absolute;
-    top: 48px;
+    top: 49px;
     bottom: 0;
     width: 100%;
 }
@@ -150,50 +150,6 @@ a {
 
 
 /*-----------------layer selections-----------*/
-    #menu {
-        float: right;
-        background: #fff;
-        position: relative;
-        z-index: 1;
-        top: 10px;
-        right: 10px;
-        border-radius: 8px;
-        width: 220px;
-        border: 1px solid rgba(0, 0, 0, 0.4);
-        font-family: 'Open Sans', sans-serif;
-        font-weight: 600;
-        }
-
-    #menu a {
-        font-size: 17px;
-        color: #404040;
-        display: block;
-        margin: 0px;
-        padding: 0px;
-        text-decoration: none;
-        border-bottom: 1px solid rgba(0, 0, 0, 0.25);
-        text-align: center;
-        }
-
-    #menu a:last-child {
-        border: none;
-    }
-
-    #menu a:hover {
-        background-color: #f8f8f8;
-        color: #404040;
-    }
-
-    #menu a.active {
-        background-color: #3887be;
-        color: #ffffff;
-    }
-
-    #menu a.active:hover {
-        background: #3074a4;
-    }
-
-
 
     .buttons{
         /* Auto layout */
@@ -321,27 +277,27 @@ a {
   font: 400 15px/16px 'Open Sans', sans-serif;
   padding: 5px;
   margin-bottom: -1px;
-  width: 120px;
+  width: 150px;
 }
 
 .mapboxgl-popup-content h3 {
  /* background: #5E63E5; */
   color: #4D4D4D;
-  margin: 0;
+  margin-top: 1px;
   border-radius: 2px 2px 0 0;
-  font-weight: 500;
-  font-size: 14px;
-  padding: 5px;
+  font-weight: 400;
+  font-size: 15px;
+  padding: 4px;
 
 }
 
 .mapboxgl-popup-content h4 {
   margin: 0;
-  padding: 5px;
-  font-weight: 400;
+  padding: 2px;
+  font-weight: 600;
   justify-content: center;
   align-items: center;
-  font-size: 12px;
+  font-size: 13px;
 }
 
 .mapboxgl-popup-content div {
