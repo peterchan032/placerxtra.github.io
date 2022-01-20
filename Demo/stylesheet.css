@@ -5,15 +5,23 @@
 /*--------------header------------------*/
 .header {
     position: static;
-    width: 1110px;
-    height: 48px;
-    left: 16px;
-    top: 20px;
+    width: auto;
+    height: 49px;
+}
+
+#title{
+    font-family: font-family: 'Open Sans', sans-serif;
+    font-size: 18px;
+    line-height: 20px;
+    margin-top: 0px;
+    margin-left: 0px;
+    font-weight: bold;
+
+
+    position: absolute;
+    top: 2%;
+    left: 1%;
     bottom: 0px;
-
-    /* background/Background/Normal */
-
-    background: #FFFFFF;
 
     /* Inside auto layout */
 
@@ -22,13 +30,6 @@
     flex-grow: 0;
     margin: 0px 0px;
 
-    font-family: font-family: 'Open Sans', sans-serif;
-    font-size: 19px;
-    line-height: 20px;
-    margin-top: 15px;
-    margin-left: 5px;
-    font-weight: bold;
-    top: 15px;
 }
 
 
@@ -36,11 +37,11 @@
 .property{
     display: inline-block;
     position: absolute;
-    left: 200px;
-    top: 15px;  
+    left: 15%;
+    top: 3.7%;  
 
     font-family: font-family: 'Open Sans', sans-serif;
-    font-size: 20px;
+    font-size: 11px;
     line-height: 20px;
     margin-top: 0px;
     margin-left: 15px;
@@ -53,7 +54,7 @@
     display: inline-block;
     width: 34px;
     height: 0px;
-    left: 180px;
+    left: 13%;
     top: 22px;  
 
     border: 1px solid #D0D0D0;
@@ -64,38 +65,58 @@
     flex: none;
     order: 1;
     flex-grow: 0;
-    margin: 0px 0px 0px 0px;
+    margin: 0px 0px 10px 0px;
 }
 
 #logo {
     position: absolute;
-    right: 10px;
-    width: 8%;
-    height: auto;
+    right: 2%;
+    width: auto;
+    height: 4%;
     display: inline-block;
     margin-right: 5px;
     top: 6px;
 
 }
 
+#property_logo {
+    position: absolute;
+    left: 15%;
+    width: auto;
+    height: 4%;
+    display: inline-block;
+    margin-right: 5px;
+    top: 0.5%;
+
+}
+
+
 /*---------------footer-------------*/
 .footer {
     position: absolute;
+    display: inline-block;
     bottom: 0px;
     height: 15px;
-    width: 100%;
+    width: auto;
 
     /* background/Background/Normal */
 
     background: #FFFFFF;
 
     font-family: font-family: 'Open Sans', sans-serif;
-    font-size: 11px;
-    line-height: 20px;
+    font-size: 10px;
+    line-height: 15px;
     margin-top: 0px;
-    margin-left: 2px;
+    margin-left: 0px;
+    margin-bottom: 0px;
     font-weight: 600;
 
+}
+
+.mapboxgl-ctrl-logo {
+    position: absolute;
+    left: 1320px;
+    bottom: 20px;
 }
 
 
@@ -103,7 +124,7 @@
 /*--------------------------------*/
 #map {
     position: absolute;
-    top: 48px;
+    top: 49px;
     bottom: 0;
     width: 100%;
 }
@@ -129,50 +150,6 @@ a {
 
 
 /*-----------------layer selections-----------*/
-    #menu {
-        float: right;
-        background: #fff;
-        position: relative;
-        z-index: 1;
-        top: 10px;
-        right: 10px;
-        border-radius: 8px;
-        width: 220px;
-        border: 1px solid rgba(0, 0, 0, 0.4);
-        font-family: 'Open Sans', sans-serif;
-        font-weight: 600;
-        }
-
-    #menu a {
-        font-size: 17px;
-        color: #404040;
-        display: block;
-        margin: 0px;
-        padding: 0px;
-        text-decoration: none;
-        border-bottom: 1px solid rgba(0, 0, 0, 0.25);
-        text-align: center;
-        }
-
-    #menu a:last-child {
-        border: none;
-    }
-
-    #menu a:hover {
-        background-color: #f8f8f8;
-        color: #404040;
-    }
-
-    #menu a.active {
-        background-color: #3887be;
-        color: #ffffff;
-    }
-
-    #menu a.active:hover {
-        background: #3074a4;
-    }
-
-
 
     .buttons{
         /* Auto layout */
@@ -182,11 +159,11 @@ a {
         align-items: flex-start;
         padding: 0px;
 
-        position: relative;
-        width: 344px;
-        height: 38px;
-        left: 450px;
-        top: 10px;
+        position: absolute;
+
+        height: 30px;
+        left: 27%;
+        top: 8%;
 
 
         /* Inside auto layout */
@@ -194,160 +171,7 @@ a {
         flex: none;
         order: 2;
         flex-grow: 0;
-        margin: 0px 16px;
-    }
-
-
-    .buttons #HHI{
-        /* Pill */
-
-        /* Auto layout */
-
-        display: flex;
-        flex-direction: row;
-        justify-content: center;
-        align-items: center;
-        padding: 9px 12px;
-
-        position: static;
-        width: 145px;
-        height: 50px;
-        left: 300px;
-        top: 20px;
-
-        /* white */
-
-        background: #FFFFFF;
-        /* lines-outlines/divider-section */
-
-        border: 1px solid #D0D0D0;
-        box-sizing: border-box;
-        /* Component Shadow */
-
-        box-shadow: 0px 2px 3px rgba(0, 0, 0, 0.1);
-        border-radius: 6px;
-
-        /* Inside auto layout */
-
-        flex: none;
-        order: 3;
-        flex-grow: 0;
-        margin: 0px 8px;
-
-    }
-
-    .buttons #PopD{
-        /* Pill */
-
-        /* Auto layout */
-
-        display: flex;
-        flex-direction: row;
-        justify-content: center;
-        align-items: center;
-        padding: 9px 12px;
-
-        position: static;
-        width: 100px;
-        height: 50px;
-        left: 197px;
-        top: 20px;
-
-        /* white */
-
-        background: #FFFFFF;
-        /* lines-outlines/divider-section */
-
-        border: 1px solid #D0D0D0;
-        box-sizing: border-box;
-        /* Component Shadow */
-
-        box-shadow: 0px 2px 3px rgba(0, 0, 0, 0.1);
-        border-radius: 6px;
-
-        /* Inside auto layout */
-
-        flex: none;
-        order: 3;
-        flex-grow: 0;
-        margin: 0px 8px;
-
-    }
-
-    .buttons #Age{
-        /* Pill */
-
-        /* Auto layout */
-
-        display: flex;
-        flex-direction: row;
-        justify-content: center;
-        align-items: center;
-        padding: 9px 12px;
-
-        position: static;
-        width: 100px;
-        height: 50px;
-        left: 100px;
-        top: 20px;
-
-        /* white */
-
-        background: #FFFFFF;
-        /* lines-outlines/divider-section */
-
-        border: 1px solid #D0D0D0;
-        box-sizing: border-box;
-        /* Component Shadow */
-
-        box-shadow: 0px 2px 3px rgba(0, 0, 0, 0.1);
-        border-radius: 6px;
-
-        /* Inside auto layout */
-
-        flex: none;
-        order: 3;
-        flex-grow: 0;
-        margin: 0px 8px;
-
-    }
-
-    .buttons #HHV{
-        /* Pill */
-
-        /* Auto layout */
-
-        display: flex;
-        flex-direction: row;
-        justify-content: center;
-        align-items: center;
-        padding: 9px 12px;
-
-        position: static;
-        width: 145px;
-        height: 50px;
-        left: 350px;
-        top: 20px;
-
-        /* white */
-
-        background: #FFFFFF;
-        /* lines-outlines/divider-section */
-
-        border: 1px solid #D0D0D0;
-        box-sizing: border-box;
-        /* Component Shadow */
-
-        box-shadow: 0px 2px 3px rgba(0, 0, 0, 0.1);
-        border-radius: 6px;
-
-        /* Inside auto layout */
-
-        flex: none;
-        order: 3;
-        flex-grow: 0;
-        margin: 0px 8px;
-
+        margin: 0px 0px;
     }
 
 
@@ -356,9 +180,46 @@ a {
         font-family: 'Open Sans', sans-serif;
         font-style: normal;
         font-weight: bold;
-        font-size: 13px;
+        font-size: 14px;
         line-height: 16px;
     }
+
+
+    .buttons #HHI, .buttons #PopD, 
+    .buttons #Age, .buttons #HHV {
+        /* Pill */
+
+        /* Auto layout */
+
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        padding: 9px 12px;
+
+        width: 24%;
+        height: 45px;
+        /* white */
+
+        background: #FFFFFF;
+        /* lines-outlines/divider-section */
+
+        border: 1px solid #D0D0D0;
+        box-sizing: border-box;
+        /* Component Shadow */
+
+        box-shadow: 0px 2px 3px rgba(0, 0, 0, 0.1);
+        border-radius: 6px;
+
+        /* Inside auto layout */
+
+        flex: none;
+        order: 3;
+        flex-grow: 0;
+        margin: 0px 8px;
+
+    }
+
 
     #HHI:focus, #PopD:focus {
         background-color: #49565D;
@@ -413,40 +274,36 @@ a {
 
 
 .mapboxgl-popup-content {
-  font: 400 15px/20px 'Open Sans', sans-serif;
-  padding: 0;
-  width: 180px;
+  font: 400 15px/16px 'Open Sans', sans-serif;
+  padding: 5px;
+  margin-bottom: -1px;
+  width: 150px;
 }
 
 .mapboxgl-popup-content h3 {
-  background: #5E63E5;
-  color: #fff;
-  margin: 0;
-  padding: 10px;
-  border-radius: 3px 3px 0 0;
-  font-weight: 600;
-  margin-top: -15px;
+ /* background: #5E63E5; */
+  color: #4D4D4D;
+  margin-top: 1px;
+  border-radius: 2px 2px 0 0;
+  font-weight: 400;
+  font-size: 15px;
+  padding: 4px;
+
 }
 
 .mapboxgl-popup-content h4 {
   margin: 0;
-  padding: 10px;
-  font-weight: 400;
+  padding: 2px;
+  font-weight: 600;
   justify-content: center;
   align-items: center;
+  font-size: 13px;
 }
 
 .mapboxgl-popup-content div {
-  padding: 10px;
+  padding: 0px;
 }
 
-.mapboxgl-popup-anchor-top > .mapboxgl-popup-content {
-  margin-top: 15px;
-}
-
-.mapboxgl-popup-anchor-top > .mapboxgl-popup-tip {
-  border-bottom-color: #5E63E5;
-}
 
 
 
