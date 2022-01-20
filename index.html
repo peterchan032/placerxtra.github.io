@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8" />
+    <title>Top Zip Code Map</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+
+    <script src='https://api.mapbox.com/mapbox-gl-js/v2.6.1/mapbox-gl.js'></script>
+    <link href='https://api.mapbox.com/mapbox-gl-js/v2.6.1/mapbox-gl.css' rel='stylesheet' />
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <link
+      href="https://api.tiles.mapbox.com/mapbox-gl-js/v2.3.1/mapbox-gl.css"
+      rel="stylesheet"
+    />
+
+    <link rel="icon" href="https://www.placer.ai/wp-content/uploads/2018/08/favicon-310x310-300x300.png" sizes="192x192">
+
+     <link rel="stylesheet" href="stylesheet.css"> 
+   
+</head>
+
+<body>
+  <div id ='map'></div>
+  <!--
+  <div class = 'footer'> 
+    <p>*True Trade Area (2021/01/01 to 2021/12/31) for Trader Joe's is based on 70% traffic volume and 15 mi radius. </p>
+  </div>
+-->
+  <div id='header' class='header'>
+    <h2 id = 'title'> Top Zip Code </h2>
+    <p id = 'property' class='property'> 4690 Freeport Blvd., Sacramento, 95822, CA</p>
+    <img id ='property_logo' src="assets/image/Raley_Supermarket_logo.svg" alt="Raley">
+    <a href="https://www.placer.ai/">
+      <img id='logo' src="assets/image/Placer_Logo_ai.png" alt="Placer.ai" url=''>
+    </a>
+  </div>
+    <div class="verticalLine"></div>
+
+    
+
+<!--
+  <div id='menu'></div>
+
+
+  <div class = 'buttons'>
+    <button id = 'HHI'><h4>Median Household Income</h4></button>
+    <button id= 'visits'><h4>Visits</h4></button>
+  </div>
+-->
+  <div id="visits-legend" class="visits-legend">
+    <h4>% of Visits</h4>
+    <div id='v-legend-color'></div>
+    <div class='row1 labels'>
+          <div class='label'>Low</div>
+          <div class='label'> </div>
+          <div class='label'> </div>
+          <div class='label'> </div>
+          <div class='label'>High</div>
+        </div>
+        </div>
+
+  </div>
+  <div id="HHI-legend" class="HHI-legend">
+  <h4>Median Household Income</h4>
+
+  <div><span style="background-color: #b2d8d8"></span>$0 - $42,051</div>
+  <div><span style="background-color: #66b2b2"></span>$42,051 - $56,107</div>
+  <div><span style="background-color: #007f80"></span>$56,107 - $72,813</div>
+  <div><span style="background-color: #006666"></span>$72,813 - $97,079</div>
+  <div><span style="background-color: #004c4c"></span>$97,079 - $25,0000</div>
+  <p>*2019 ACS data at zip code level</p>
+
+  </div>
+  <script src="scripts/mapping.js"></script> 
+</body>
+
+</html>
