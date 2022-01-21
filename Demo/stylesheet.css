@@ -2,6 +2,13 @@
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&display=swap');
 
 
+/* Main site body */
+.wrapper {
+    width: 100%;
+    margin: 0 auto;
+    position: relative; /* Ensure absolute positioned child elements are relative to this*/
+}
+
 /*--------------header------------------*/
 .header {
     position: static;
@@ -9,19 +16,19 @@
     height: 49px;
 }
 
-#title{
+#title h3{
     font-family: font-family: 'Open Sans', sans-serif;
-    font-size: 18px;
-    line-height: 20px;
+    font-size: 20px;
+    line-height: 18px;
     margin-top: 0px;
     margin-left: 0px;
     font-weight: bold;
 
 
-    position: absolute;
-    top: 2%;
+    position: fixed;
+    top: 1.9%;
     left: 1%;
-    bottom: 0px;
+    width: 190px;
 
     /* Inside auto layout */
 
@@ -30,15 +37,17 @@
     flex-grow: 0;
     margin: 0px 0px;
 
+    transform: translate(0%, 0%)
+
 }
 
 
 
 .property{
     display: inline-block;
-    position: absolute;
-    left: 15%;
-    top: 3.7%;  
+    position: fixed;
+    left: 15.5%;
+    top: 3.8%;  
 
     font-family: font-family: 'Open Sans', sans-serif;
     font-size: 11px;
@@ -50,11 +59,12 @@
 
 
 .verticalLine {
-    position: absolute;
+
+    position: fixed;
     display: inline-block;
     width: 34px;
     height: 0px;
-    left: 13%;
+    left: 14%;
     top: 22px;  
 
     border: 1px solid #D0D0D0;
@@ -68,32 +78,66 @@
     margin: 0px 0px 10px 0px;
 }
 
-#logo {
+
+.verticalLine2 {
     position: absolute;
+    display: inline-block;
+    width: 34px;
+    height: 0px;
+    left: 33%;
+    top: 22px;  
+
+    border: 1px solid #D0D0D0;
+    transform: rotate(-90deg);
+
+    /* Inside auto layout */
+
+    flex: none;
+    order: 1;
+    flex-grow: 0;
+    margin: 0px 0px 10px 0px;
+    padding-right: 10px;
+}
+
+#logo {
+    position: fixed;
     right: 2%;
     width: auto;
     height: 4%;
     display: inline-block;
     margin-right: 5px;
-    top: 6px;
+    top: 8px;
 
 }
 
 #property_logo {
-    position: absolute;
-    left: 15%;
+    position: fixed;
+    left: 16%;
     width: auto;
     height: 4%;
     display: inline-block;
     margin-right: 5px;
-    top: 0.5%;
+    top: 0.4%;
 
 }
 
+#date h3{
+    position: fixed;
+    left: 35.5%;
+    top: 2.8%;
+
+    font-family: font-family: 'Open Sans', sans-serif;
+    font-size: 16px;
+    line-height: 18px;
+    margin-top: 0px;
+    margin-left: 0px;
+    font-weight: bold;
+
+}
 
 /*---------------footer-------------*/
 .footer {
-    position: absolute;
+    position: fixed;
     display: inline-block;
     bottom: 0px;
     height: 15px;
@@ -259,7 +303,7 @@ a {
 
 .legend p {
     font-size: 10px;
-    margin-bottom: -10px;
+    margin-bottom: 0px;
 }
  
 .legend div span {
@@ -268,6 +312,7 @@ a {
     height: 10px;
     margin-right: 5px;
     width: 10px;
+    padding: 5px;
 }
 
 /*--------------------Pop up ----------------------*/
