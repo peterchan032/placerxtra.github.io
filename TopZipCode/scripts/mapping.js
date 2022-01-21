@@ -19,8 +19,8 @@ var topzipcode_src = 'topzipcode_src'; //source
 //var topzipcode = 'topzipcode'; //id
 
 //household income for CA
-var HHI_url = 'mapbox://placermapteam.b0sup0q8'; //tileset id
-var HHI_srcLayer = 'HHI_zip_CA-2gxepv'; //source-layer
+var HHI_url = 'mapbox://placermapteam.4njijgy5'; //tileset id
+var HHI_srcLayer = 'HHI_zip_CA-dl02h8'; //source-layer
 var HHI_src = 'HHI_src'; //source
 
 //zipcode point data
@@ -30,18 +30,18 @@ var point_src = 'point_src'; //source
 
 //radius ring
 //1mi
-var sRad_url = 'mapbox://placermapteam.abu6rjsr';
-var sRad_srcLayer = 'Ring_1mi-3tdoyc'
+var sRad_url = 'mapbox://placermapteam.4p06rr9s';
+var sRad_srcLayer = 'Ring_1mi-69i3nk'
 var sRad_src = 'sRad_src';
 
 //3mi
-var mRad_url = 'mapbox://placermapteam.0vhxmk5x';
-var mRad_srcLayer = 'Ring_3mi-5pnfie';
+var mRad_url = 'mapbox://placermapteam.0hudy1xw';
+var mRad_srcLayer = 'Ring_3mi-bgdctc';
 var mRad_src ='mRad_src';
 
 //5mi 
-var lRad_url = 'mapbox://placermapteam.0572ahom';
-var lRad_srcLayer = 'Ring_5mi-0s3ma4'
+var lRad_url = 'mapbox://placermapteam.3y3rsqql';
+var lRad_srcLayer = 'Rings_5mi-7c5e9r'
 var lRad_src ='lRad_src';
 
 
@@ -91,26 +91,26 @@ map.on('load', function(){
     'source-layer':HHI_srcLayer,
     'paint':{
     'fill-color':
-        [
-          "step",
-          ["get", "HHI"],
-          "#b2d8d8",
-          42051,
-          "#b2d8d8",
-          56107,
-          "#66b2b2",
-          72812,
-          "#007f80",
-          97079,
-          "#006666",
-          250000,
-          "#004c4c"
-        ],
+    [
+      "step",
+      ["get", "HHI"],
+      "#ACCAC9",
+      42051,
+      "#72AEB6",
+      56107,
+      "#4692B1",
+      72812,
+      "#2A70A1",
+      97079,
+      "#094973",
+      250000,
+      "#003150"
+    ],
     'fill-opacity': [
     'case',
     ['boolean', ['feature-state', 'hover'], false],
     1,
-    0.5
+    0.7
     ],
     'fill-outline-color': [
     'case',
@@ -129,7 +129,7 @@ map.on('load', function(){
 // When the user moves their mouse over the state-fill layer, we'll update the
 // feature state for the feature under the mouse.
 map.on('mousemove', 'Median Household Income', (e) => {
-  map.getCanvas().style.cursor = 'pointer';
+    map.getCanvas().style.cursor = 'pointer';
   if (e.features.length > 0) {
     if (hoveredStateId !== null) {
       map.setFeatureState(
@@ -147,7 +147,7 @@ hoveredStateId = e.features[0].id;
 // When the mouse leaves the state-fill layer, update the feature state of the
 // previously hovered feature.
 map.on('mouseleave', 'Median Household Income', (e) => {
-  map.getCanvas().style.cursor = '';
+    map.getCanvas().style.cursor = '';
   if (hoveredStateId !== null) {
     map.setFeatureState(
       { source: HHI_src, sourceLayer: HHI_srcLayer, id: hoveredStateId },
@@ -156,7 +156,6 @@ map.on('mouseleave', 'Median Household Income', (e) => {
 }
   hoveredStateId = null;
 });
-
 
 /*------------------------ visits numbers ----------------*/
 
@@ -200,83 +199,9 @@ map.on('mouseleave', 'Median Household Income', (e) => {
   }
 });
 
-/*
-  //hover function
-// When the user moves their mouse over the state-fill layer, we'll update the
-// feature state for the feature under the mouse.
-map.on('mousemove', 'visits', (e) => {
-    map.getCanvas().style.cursor = 'pointer';
-  if (e.features.length > 0) {
-    if (hoveredStateId !== null) {
-      map.setFeatureState(
-        { source: topzipcode_src, sourceLayer: topzipcode_srcLayer, id: hoveredStateId },
-        { hover: false}
-        );
-  }
-hoveredStateId = e.features[0].id;
-  map.setFeatureState(
-    { source: topzipcode_src, sourceLayer: topzipcode_srcLayer, id: hoveredStateId },
-    { hover: true });
-    };
 
-});
- 
 
-// When the mouse leaves the state-fill layer, update the feature state of the
-// previously hovered feature.
-map.on('mouseleave', 'visits', (e) => {
-    map.getCanvas().style.cursor = '';
-  if (hoveredStateId !== null) {
-    map.setFeatureState(
-      { source: topzipcode_src, sourceLayer: topzipcode_srcLayer, id: hoveredStateId },
-      { hover: false }
-    );
-}
-  hoveredStateId = null;
-  
-});
 
-*/
-
-/*------------------------ visits numbers 3D----------------*/
-
-  map.addLayer({
-  'id': 'visits3D',
-  'type':'fill-extrusion',
-  'source':topzipcode_src,
-  'source-layer':topzipcode_srcLayer,
-    'paint':{
-    'fill-extrusion-height':
-        [
-          "interpolate",
-          ["linear"],
-          ["get", "p_visits"],
-          0.17,
-          500,
-          15.95,
-          4000
-        ],           
-    'fill-extrusion-color':[
-          "step",
-          ["get", "p_visits"],
-          "#EFE0F9",
-          0.8,
-          "#f0e1f9",
-          2.64,
-          "#bfbbf7",
-          5.73,
-          "#9099ea",
-          10.54,
-          "#5f76d3",
-          15.95,
-          "#3158b2"
-        ],
-  'fill-extrusion-opacity': 0.9,
-  },
-  'layout': {
-    visibility:'none'
-  }
-});
 
 
 /*------------------ highlight of top zip code polygons ----------------*/
@@ -287,8 +212,19 @@ map.addLayer({
     'source':topzipcode_src,
     'source-layer':topzipcode_srcLayer,
     'paint':{
-                'line-width': 3,
-                'line-color':  '#ffffff'
+            'line-width': ["interpolate",
+              ["linear"],
+              ["zoom"],
+              7,
+              0,
+              8,
+              2,
+              10,
+              3,
+              22,
+              3
+            ],
+            'line-color':  '#f1eaea'
             },
     'layout': {
                 'visibility': 'visible'
@@ -308,10 +244,10 @@ map.addLayer({
               "interpolate",
               ["linear"],
               ["zoom"],
+              7,
               0,
-              4.199999999999999,
-              5,
-              4.62,
+              8,
+              3.62,
               10,
               5.879999999999999,
               22,
@@ -382,8 +318,8 @@ map.addLayer({
             'source': sRad_src,
             'source-layer': sRad_srcLayer,
             'paint':{
-                'line-width': 4,
-                'line-color': "#f15574",
+                'line-width': 5,
+                'line-color': "#f2eeef",
                 'line-dasharray': [1,1],
             },
           'layout': {
@@ -397,8 +333,8 @@ map.addLayer({
             'source': mRad_src,
             'source-layer': mRad_srcLayer,
             'paint':{
-                'line-width': 4,
-                'line-color': "#f15574",
+                'line-width': 5,
+                'line-color': "#f2eeef",
                 'line-dasharray': [1,1],
             },
           'layout': {
@@ -412,14 +348,77 @@ map.addLayer({
             'source': lRad_src,
             'source-layer': lRad_srcLayer,
             'paint':{
-                'line-width': 4,
-                'line-color': "#f15574",
+                'line-width': 5,
+                'line-color': "#f2eeef",
                 'line-dasharray': [1,1],
             },
           'layout': {
             'visibility': 'visible'
             }
         });
+
+
+//labels
+        map.addLayer({
+            'id': 'sRad_label',
+            'type':'symbol',
+            'source': sRad_src,
+            'source-layer': sRad_srcLayer,
+            'paint':{
+                'text-color':'#ffffff',
+                'text-halo-width': 1,
+                'text-halo-color': "#000000",
+            },
+          'layout': {
+            'visibility': 'visible',
+            'text-size': 16,
+            'text-field': ["to-string", ["get", "name"]],
+            'text-offset': [0, 0],
+            'text-anchor':'center',
+            'symbol-placement':'line-center'
+            }
+        });
+
+        map.addLayer({
+            'id': 'mRad_label',
+            'type':'symbol',
+            'source': mRad_src,
+            'source-layer': mRad_srcLayer,
+            'paint':{
+                'text-color':'#ffffff',
+                'text-halo-width': 1,
+                'text-halo-color': "#000000",
+            },
+          'layout': {
+            'visibility': 'visible',
+            'text-size': 16,
+            'text-field': ["to-string", ["get", "name"]],
+            'text-offset': [0, 0],
+            'text-anchor':'center',
+            'symbol-placement':'line-center'
+            }
+        });
+
+        map.addLayer({
+            'id': 'lRad+label',
+            'type':'symbol',
+            'source': lRad_src,
+            'source-layer': lRad_srcLayer,
+          'paint':{
+                'text-color':'#ffffff',
+                'text-halo-width': 1,
+                'text-halo-color': "#000000",
+            },
+          'layout': {
+            'visibility': 'visible',
+            'text-size': 16,
+            'text-field': ["to-string", ["get", "name"]],
+            'text-offset': [0, 0],
+            'text-anchor':'center',
+            'symbol-placement':'line-center'
+            }
+        });
+
 
 
 });
