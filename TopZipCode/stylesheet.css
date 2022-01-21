@@ -349,12 +349,12 @@ a {
 #v-legend-color {
     background: linear-gradient(
     to right,
-    #EFE0F9,
-    #f0e1f9,
-    #bfbbf7,
-    #9099ea,
-    #5f76d3,
-    #3158b2
+    #ffba7a,
+    #ffba7a,
+    #fe662f,
+    #ef350b,
+    #cc0e00,
+    #7a0000
     );
     margin-bottom: 5px;
     height:  10px;

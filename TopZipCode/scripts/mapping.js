@@ -94,6 +94,7 @@ map.on('load', function(){
     [
       "step",
       ["get", "HHI"],
+     
       "#ACCAC9",
       42051,
       "#72AEB6",
@@ -105,6 +106,7 @@ map.on('load', function(){
       "#094973",
       250000,
       "#003150"
+      
     ],
     'fill-opacity': [
     'case',
@@ -259,35 +261,36 @@ map.addLayer({
               ["exponential", 1],
               ["get", "p_visits"],
               0,
-            '#EFE0F9',
-            0.8,
-            '#f0e1f9',
-            2.64,
-            '#bfbbf7',
-            5.73,
-            '#9099ea',
-            10.54,
-            '#5f76d3',
-            15.95,
-            '#3158b2'
+           "#ffba7a",
+              0.8,
+              "#ffba7a",
+              2.64,
+              "#fe662f",
+              5.73,
+              "#ef350b",
+              10.54,
+              "#cc0e00",
+              15.95,
+              "#7a0000"
         ],
         'circle-stroke-width': 0.75,
         'circle-stroke-color': [
               "interpolate",
               ["exponential", 1],
               ["get", "p_visits"],
-                 0,
-                '#EFE0F9',
-                0.8,
-                '#f0e1f9',
-                2.64,
-                '#bfbbf7',
-                5.73,
-                '#9099ea',
-                10.54,
-                '#5f76d3',
-                15.95,
-                '#3158b2'
+              0,
+              "#ffba7a",
+              0.8,
+              "#ffba7a",
+              2.64,
+              "#fe662f",
+              5.73,
+              "#ef350b",
+              10.54,
+              "#cc0e00",
+              15.95,
+              "#7a0000"
+        
            
            /*
               "#ffba7a",
