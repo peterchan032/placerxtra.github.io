@@ -46,8 +46,8 @@
 .property{
     display: inline-block;
     position: fixed;
-    left: 17%;
-    top: 3.5%;  
+    left: 17.5%;
+    top: 3.8%;  
 
     font-family: font-family: 'Open Sans', sans-serif;
     font-size: 11px;
@@ -84,7 +84,7 @@
     display: inline-block;
     width: 34px;
     height: 0px;
-    left: 37%;
+    left: 36.5%;
     top: 22px;  
 
     border: 1px solid #D0D0D0;
@@ -96,6 +96,7 @@
     order: 1;
     flex-grow: 0;
     margin: 0px 0px 10px 0px;
+    padding-right: 10px;
 }
 
 #logo {
@@ -105,25 +106,25 @@
     height: 4%;
     display: inline-block;
     margin-right: 5px;
-    top: 6px;
+    top: 8px;
 
 }
 
 #property_logo {
     position: fixed;
-    left: 18%;
+    left: 18.5%;
     width: auto;
     height: 4%;
     display: inline-block;
     margin-right: 5px;
-    top: 0.2%;
+    top: 0.4%;
 
 }
 
 #date h3{
     position: fixed;
-    left: 40%;
-    top: 2.5%;
+    left: 39%;
+    top: 2.8%;
 
     font-family: font-family: 'Open Sans', sans-serif;
     font-size: 16px;
@@ -358,6 +359,7 @@ a {
     );
     margin-bottom: 5px;
     height:  10px;
+    width: auto;
 }
 
 .row1 {
@@ -366,11 +368,12 @@ a {
 }
 
 .label {
-    width: 16%;
+    width: 18%;
     display: inline-block;
     text-align: center;
-    margin-left: -1px;
+    margin-left: -2px;
     color: #050505;
+    font-size: 12px;
 }
 
 
@@ -390,7 +393,7 @@ a {
   color: #4D4D4D;
   margin-top: 1px;
   border-radius: 2px 2px 0 0;
-  font-weight: 400;
+  font-weight: 300;
   font-size: 15px;
   padding: 4px;
 
