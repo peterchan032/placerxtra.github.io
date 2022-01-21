@@ -1,3 +1,5 @@
+console.log('Top Zip Codes!');
+
 /*------------------ load the map ---------------*/
 		mapboxgl.accessToken = 'pk.eyJ1IjoicGxhY2VybWFwdGVhbSIsImEiOiJja3d6NTh4aGkwa2pwMndvNjRnZDR2Zmc0In0.8J8KJ5IxdOF3gTEs8HVM2Q';
       	const map = new mapboxgl.Map({

@@ -294,7 +294,7 @@ a {
 
 .visits-legend {
     position: absolute;
-    bottom: 250px;
+    bottom: 220px;
     left: 10px;
     z-index: 1;
     width: auto;
@@ -328,15 +328,15 @@ a {
     padding: 10px;
 }
 
-.HHI-legend .visits-legend h4 {
+.HHI-legend h4, .visits-legend h4{
     font-size: 14px;
     margin: 0 0 10px;
     font-weight: bold;
 }
 
-.legend p {
+.HHI-legend p, .visits-legend p {
     font-size: 10px;
-    margin-bottom: -10px;
+    margin-bottom: 0px;
 }
  
 .HHI-legend div span {
@@ -345,6 +345,7 @@ a {
     height: 10px;
     margin-right: 5px;
     width: 10px;
+    padding: 5px;
 }
 
 #v-legend-color {
@@ -365,13 +366,14 @@ a {
 .row1 {
     height: 12px;
     width: 100%;
+    margin-bottom: 5px;
 }
 
 .label {
     width: 18%;
     display: inline-block;
     text-align: center;
-    margin-left: -2px;
+    margin-left: -4px;
     color: #050505;
     font-size: 12px;
 }
