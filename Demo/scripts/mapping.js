@@ -18,8 +18,8 @@ console.log('Key Demographics!');
 /*--------------------- variable -----------------------*/
 
 //Household income
-var NYHHI_url = 'mapbox://placermapteam.62jodr2n'; //tileset id
-var NYHHI_srcLayer = 'NY_CBG_HHI2019-6th6e7'; //source-layer
+var NYHHI_url = 'mapbox://placermapteam.63jjqhnj'; //tileset id
+var NYHHI_srcLayer = 'US_CBG_HHI2019_v2'; //source-layer
 var NYHHI_src = 'NYHHI_src'; //source
 //var NYHHI = 'NYHHI'; //id
 
@@ -38,16 +38,18 @@ var TTA_src = 'TTA_src'; //source
 
 
 /*-----------------hover state -----------------------------*/
-var hoveredStateId = null;
+let hoveredStateId = null;
 
 
 
 /*--------------------- load layers ----------------*/
 
 map.on('load', function(){
+
 	map.addSource(NYHHI_src,{
 		type: 'vector',
-		url: NYHHI_url
+		url: NYHHI_url,
+    generateID: true,
 	});
 
   map.addSource(NYpop_src,{
@@ -105,7 +107,7 @@ const popup = new mapboxgl.Popup({
     'case',
     ['boolean', ['feature-state', 'hover'], false],
     '#675f5f',
-    '#bdb7b7'
+    '#9c9696'
     ]
 	},
 
@@ -114,11 +116,12 @@ const popup = new mapboxgl.Popup({
 	}
 });
 
-//hover function
+  //hover function
 // When the user moves their mouse over the state-fill layer, we'll update the
 // feature state for the feature under the mouse.
 map.on('mousemove', 'Median Household Income', (e) => {
   if (e.features.length > 0) {
+    console.log(e.features)
     if (hoveredStateId !== null) {
       map.setFeatureState(
         { source: NYHHI_src, sourceLayer: NYHHI_srcLayer, id: hoveredStateId },
@@ -129,12 +132,14 @@ hoveredStateId = e.features[0].id;
   map.setFeatureState(
     { source: NYHHI_src, sourceLayer: NYHHI_srcLayer, id: hoveredStateId },
     { hover: true });
-    }
+    };
+console.log(hoveredStateId);
 });
  
+
 // When the mouse leaves the state-fill layer, update the feature state of the
 // previously hovered feature.
-map.on('mouseleave', 'Median Household Income', (e) => {
+map.on('mouseleave', 'Population Density', (e) => {
   if (hoveredStateId !== null) {
     map.setFeatureState(
       { source: NYHHI_src, sourceLayer: NYHHI_srcLayer, id: hoveredStateId },
@@ -142,6 +147,7 @@ map.on('mouseleave', 'Median Household Income', (e) => {
     );
 }
   hoveredStateId = null;
+  
 });
 
 
@@ -194,6 +200,7 @@ map.on('mouseleave', 'Median Household Income', (e) => {
 // feature state for the feature under the mouse.
 map.on('mousemove', 'Population Density', (e) => {
   if (e.features.length > 0) {
+    console.log(e.features)
     if (hoveredStateId !== null) {
       map.setFeatureState(
         { source: NYpop_src, sourceLayer: NYpop_srcLayer, id: hoveredStateId },
@@ -205,7 +212,7 @@ hoveredStateId = e.features[0].id;
     { source: NYpop_src, sourceLayer: NYpop_srcLayer, id: hoveredStateId },
     { hover: true });
     };
-
+console.log(hoveredStateId);
 });
  
 
