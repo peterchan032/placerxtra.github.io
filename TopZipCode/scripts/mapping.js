@@ -125,7 +125,7 @@ map.on('load', function(){
     },
 
     'layout': {
-        visibility:'visible'
+        visibility:'none'
     }
 });
 
@@ -169,28 +169,24 @@ map.on('mouseleave', 'Median Household Income', (e) => {
   'source':topzipcode_src,
   'source-layer':topzipcode_srcLayer,
     'paint':{
-    'fill-color':"hsla(0, 0%, 0%, 0)",
-/*
+    'fill-color':
     [
           "step",
           ["get", "p_visits"],
-   
-          "#EFE0F9",
-          0.8,
-          "#f0e1f9",
-          2.64,
-          "#bfbbf7",
-          5.73,
-          "#9099ea",
-          10.54,
-          "#5f76d3",
-          15.95,
-          "#3158b2"
-
-
-
+         
+           "#ffba7a",
+              0.8,
+              "#ffba7a",
+              2.64,
+              "#fe662f",
+              5.73,
+              "#ef350b",
+              10.54,
+              "#cc0e00",
+              15.95,
+              "#7a0000"
         ],
-*/
+
   'fill-opacity': [
     'case',
     ['boolean', ['feature-state', 'hover'], false],1, 0.7],
@@ -203,9 +199,56 @@ map.on('mouseleave', 'Median Household Income', (e) => {
   }
 });
 
+//hover function
+// When the user moves their mouse over the state-fill layer, we'll update the
+// feature state for the feature under the mouse.
+map.on('mousemove', 'visits', (e) => {
+    map.getCanvas().style.cursor = 'pointer';
+  if (e.features.length > 0) {
+    if (hoveredStateId !== null) {
+      map.setFeatureState(
+        { source: topzipcode_src, sourceLayer: topzipcode_srcLayer, id: hoveredStateId },
+        { hover: false}
+        );
+  }
+hoveredStateId = e.features[0].id;
+  map.setFeatureState(
+    { source: topzipcode_src, sourceLayer: topzipcode_srcLayer, id: hoveredStateId },
+    { hover: true });
+    }
+});
+ 
+// When the mouse leaves the state-fill layer, update the feature state of the
+// previously hovered feature.
+map.on('mouseleave', 'visits', (e) => {
+    map.getCanvas().style.cursor = '';
+  if (hoveredStateId !== null) {
+    map.setFeatureState(
+      { source: topzipcode_src, sourceLayer: topzipcode_srcLayer, id: hoveredStateId },
+      { hover: false }
+    );
+}
+  hoveredStateId = null;
+});
 
-
-
+  map.addLayer({
+  'id': 'visits-transparent',
+  'type':'fill',
+  'source':topzipcode_src,
+  'source-layer':topzipcode_srcLayer,
+  'paint':{
+  'fill-color': "hsla(0, 0%, 0%, 0)",
+  'fill-opacity': [
+    'case',
+    ['boolean', ['feature-state', 'hover'], false],1, 0.7],
+  'fill-outline-color': [
+    'case',
+    ['boolean', ['feature-state', 'hover'], false],'#bdb7b7','#5d696f']
+  },
+  'layout': {
+    visibility:'none'
+  }
+});
 
 
 /*------------------ highlight of top zip code polygons ----------------*/
@@ -237,7 +280,7 @@ map.addLayer({
 
 
 /* --------------- point of top zip code -------------------*/
-
+/*
 map.addLayer({
     'id':'zipcode_pt',
     'type':'circle',
@@ -292,21 +335,7 @@ map.addLayer({
               "#cc0e00",
               15.95,
               "#7a0000"
-        
-           
-           /*
-              "#ffba7a",
-              0.8,
-              "#ffba7a",
-              2.64,
-              "#fe662f",
-              5.73,
-              "#ef350b",
-              10.54,
-              "#cc0e00",
-              15.95,
-              "#7a0000"
-              */
+
             ],
     },
     'layout': {
@@ -314,7 +343,7 @@ map.addLayer({
             }
 });
 
-
+*/
 
 /*-------------------- Radius Ring ---------------------------------*/
         map.addLayer({
@@ -470,7 +499,8 @@ map.addLayer({
 /*------------------- click to popup text boxes ----------------------*/
     map.on('click', function (e) {
     
-    //visits
+
+    //visits when visits layers on
      var featrues_visits = map.queryRenderedFeatures(e.point, {
       layers: ['visits'] // replace this with the name of the layer
     });
@@ -478,11 +508,35 @@ map.addLayer({
     if (featrues_visits.length >0){
       var features = featrues_visits[0];
       var description = '<h4>Zip code</h4>' + `<h4>${features.properties.Zip_code}</h4>` + '<p> </p>' +
+            '<h4>% of Visits</h4>' + `<h4>${features.properties.p_visits}%</h4>` + '<p> </p>'+
             '<h4>Median Household Income</h4>'+
             `<h4>${Math.round(features.properties.HHI).toLocaleString("en-US", {style:"currency", currency:"USD",
-              minimumFractionDigits: 0, maximumFractionDigits: 0,})}</h4>` 
-            +'<p> </p>' +
+              minimumFractionDigits: 0, maximumFractionDigits: 0,})}</h4>`
+          
+            
+
+    var popup = new mapboxgl.Popup({offset: [0, -15],keepInView:true})
+    .setLngLat(e.lngLat)
+    .setHTML(description)
+    .addTo(map);
+
+    return;
+    }      
+
+    //visits when visits layer turned off
+     var featrues_visits = map.queryRenderedFeatures(e.point, {
+      layers: ['visits-transparent'] // replace this with the name of the layer
+    });
+
+    if (featrues_visits.length >0){
+      var features = featrues_visits[0];
+      var description = '<h4>Zip code</h4>' + `<h4>${features.properties.Zip_code}</h4>` + '<p> </p>' +
+            '<h4>Median Household Income</h4>'+
+            `<h4>${Math.round(features.properties.HHI).toLocaleString("en-US", {style:"currency", currency:"USD",
+              minimumFractionDigits: 0, maximumFractionDigits: 0,})}</h4>` + '<p> </p>' +
             '<h4>% of Visits</h4>' + `<h4>${features.properties.p_visits}%</h4>`
+          
+            
 
     var popup = new mapboxgl.Popup({offset: [0, -15],keepInView:true})
     .setLngLat(e.lngLat)
@@ -521,7 +575,7 @@ map.addLayer({
 
 
 /*---------------------- click to show demographic layers and their legends ---------*/
- /*
+ 
 
   const HHI_legend = document.getElementById('HHI-legend');
   const visits_legend = document.getElementById('visits-legend');
@@ -529,6 +583,7 @@ map.addLayer({
   document.getElementById('HHI').addEventListener('click',() => {
 
     map.setLayoutProperty('Median Household Income','visibility','visible');
+    map.setLayoutProperty('visits-transparent','visibility','visible');
     map.setLayoutProperty('visits','visibility','none');
 
     HHI_legend.style.display = 'block';
@@ -548,7 +603,6 @@ map.addLayer({
   }
 );
 
-*/
 
 
 
