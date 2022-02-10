@@ -440,14 +440,14 @@ a {
     left: 10px;
     z-index: 1;
 }
-
+/*
 .visits-legend {
     position: absolute;
-    bottom: 80px;
+    bottom: 40px;
     left: 10px;
     z-index: 1;
     width: 220px;
-    height: 100px;
+    height: auto;
 
     background-color: #fff;
     border-radius: 3px;
@@ -459,8 +459,8 @@ a {
     line-height: 20px;
     padding: 10px;
 }
-
-.HHI-legend {
+*/
+.HHI-legend,.visits-legend {
     background-color: #fff;
     border-radius: 3px;
     width: 220px;
@@ -504,7 +504,7 @@ a {
     margin: 0px;
 }
 
-.HHI-legend #legend-group {
+#legend-group {
     position: absolute;
     left: 16px;
     top: 56px;
@@ -608,7 +608,7 @@ a {
 
 
 
-.HHI-legend p {
+.HHI-legend p, .visits-legend p {
     font-family: Open Sans;
     font-style: normal;
     font-weight: normal;
@@ -617,7 +617,7 @@ a {
     width: auto;
 }
  
-.HHI-legend div span {
+.HHI-legend div span, .visits-legend div span {
     border-radius: 0%;
     display: inline-block;
     height: 12px;
@@ -626,6 +626,7 @@ a {
     padding: 5px;
 }
 
+/*
 #v-legend-color {
     background: linear-gradient(
         to right,
@@ -666,7 +667,7 @@ a {
     line-height: 16px;
 }
 
-
+*/
 
 /*--------------------Pop up ----------------------*/
 

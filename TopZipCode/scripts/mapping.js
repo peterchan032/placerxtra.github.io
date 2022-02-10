@@ -161,6 +161,37 @@ map.on('mouseleave', 'Median Household Income', (e) => {
   hoveredStateId = null;
 });
 
+//hhi layer when "visits" layers is on
+//transparent but has a boundary stroke
+    map.addLayer({
+    'id': 'Median Household Income fill',
+    'type':'fill',
+    'source':HHI_src,
+    'source-layer':HHI_srcLayer,
+    'paint':{
+    'fill-color': '#eeeff2',
+    'fill-opacity': 0.2,
+    'fill-outline-color': '#b0abab'
+    },
+    'layout': {
+        visibility:'visible'
+    }
+});
+
+    map.addLayer({
+    'id': 'Median Household Income Boundary',
+    'type':'line',
+    'source':HHI_src,
+    'source-layer':HHI_srcLayer,
+    'paint':{
+            'line-width': 0.7,
+            'line-color':  '#f1eaea'
+            },
+    'layout': {
+                'visibility': 'visible'
+            }
+});
+
 /*------------------------ visits numbers ----------------*/
 
   map.addLayer({
@@ -173,18 +204,17 @@ map.on('mouseleave', 'Median Household Income', (e) => {
     [
           "step",
           ["get", "p_visits"],
-         
-           "#ffba7a",
-              0.8,
-              "#ffba7a",
-              2.64,
-              "#fe662f",
-              5.73,
-              "#ef350b",
-              10.54,
-              "#cc0e00",
+              "#EED1E2",
+              0.2,
+              "#EED1E2",
+              0.28,
+              "#CBA9ED",
+              0.49,
+              "#A283EA",
+              1.07,
+              "#7861D9",
               15.95,
-              "#7a0000"
+              "#4D43BB"
         ],
 
   'fill-opacity': [
@@ -464,7 +494,15 @@ map.addLayer({
             },
           'layout': {
             'visibility': 'visible',
-            'text-size': 16,
+            'text-size':  [
+                  "step",
+                  ["zoom"],
+                  0,
+                  9.8,
+                  16,
+                  22,
+                  16
+                ],
             'text-field': ["to-string", ["get", "name"]],
             'text-offset': [0, 0],
             'text-anchor':'center',
@@ -484,7 +522,15 @@ map.addLayer({
             },
           'layout': {
             'visibility': 'visible',
-            'text-size': 16,
+            'text-size': [
+                  "step",
+                  ["zoom"],
+                  0,
+                  9.8,
+                  16,
+                  22,
+                  16
+                ],
             'text-field': ["to-string", ["get", "name"]],
             'text-offset': [0, 0],
             'text-anchor':'center',
@@ -551,7 +597,7 @@ map.addLayer({
 
     //Household Income feature layers
     var featrues_HHI = map.queryRenderedFeatures(e.point, {
-      layers: ['Median Household Income'] // replace this with the name of the layer
+      layers: ['Median Household Income','Median Household Income fill'] // replace this with the name of the layer
     });
 
     if (featrues_HHI.length >0){
@@ -580,11 +626,14 @@ map.addLayer({
   const HHI_legend = document.getElementById('HHI-legend');
   const visits_legend = document.getElementById('visits-legend');
   HHI_legend.style.display = 'none';
+
+  //when HHI button clicked
   document.getElementById('HHI').addEventListener('click',() => {
 
     map.setLayoutProperty('Median Household Income','visibility','visible');
     map.setLayoutProperty('visits-transparent','visibility','visible');
     map.setLayoutProperty('visits','visibility','none');
+    map.setLayoutProperty('Median Household Income fill','visibility','none');
 
     HHI_legend.style.display = 'block';
     visits_legend.style.display = 'none';
@@ -592,9 +641,12 @@ map.addLayer({
   }
 );
 
+//when visits button clicked
   document.getElementById('visits').addEventListener('click',() => {
 
     map.setLayoutProperty('visits','visibility','visible');
+    map.setLayoutProperty('Median Household Income Boundary','visibility','visible');
+    map.setLayoutProperty('Median Household Income fill','visibility','visible');
     map.setLayoutProperty('Median Household Income','visibility','none');
 
     HHI_legend.style.display = 'none';
