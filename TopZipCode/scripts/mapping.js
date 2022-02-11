@@ -184,7 +184,7 @@ map.on('mouseleave', 'Median Household Income', (e) => {
     'source':HHI_src,
     'source-layer':HHI_srcLayer,
     'paint':{
-            'line-width': 1,
+            'line-width': 0.75,
             'line-color':  '#1d1d20'
             },
     'layout': {
