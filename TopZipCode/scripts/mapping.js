@@ -21,8 +21,8 @@ var topzipcode_src = 'topzipcode_src'; //source
 //var topzipcode = 'topzipcode'; //id
 
 //household income for CA
-var HHI_url = 'mapbox://placermapteam.4njijgy5'; //tileset id
-var HHI_srcLayer = 'HHI_zip_CA-dl02h8'; //source-layer
+var HHI_url = 'mapbox://placermapteam.dmiw1z3u'; //tileset id
+var HHI_srcLayer = 'CA_zipcode_HHI2019'; //source-layer
 var HHI_src = 'HHI_src'; //source
 
 //zipcode point data
@@ -125,7 +125,7 @@ map.on('load', function(){
     },
 
     'layout': {
-        visibility:'none'
+        visibility:'visible'
     }
 });
 
@@ -174,7 +174,7 @@ map.on('mouseleave', 'Median Household Income', (e) => {
     'fill-outline-color': '#b0abab'
     },
     'layout': {
-        visibility:'visible'
+        'visibility':'none'
     }
 });
 
@@ -184,11 +184,11 @@ map.on('mouseleave', 'Median Household Income', (e) => {
     'source':HHI_src,
     'source-layer':HHI_srcLayer,
     'paint':{
-            'line-width': 0.7,
+            'line-width': 1,
             'line-color':  '#f1eaea'
             },
     'layout': {
-                'visibility': 'visible'
+                'visibility': 'none'
             }
 });
 
@@ -205,13 +205,13 @@ map.on('mouseleave', 'Median Household Income', (e) => {
           "step",
           ["get", "p_visits"],
               "#EED1E2",
-              0.2,
+              0.24,
               "#EED1E2",
-              0.28,
+              0.46,
               "#CBA9ED",
-              0.49,
+              1.04,
               "#A283EA",
-              1.07,
+              5.73,
               "#7861D9",
               15.95,
               "#4D43BB"
@@ -225,7 +225,7 @@ map.on('mouseleave', 'Median Household Income', (e) => {
     ['boolean', ['feature-state', 'hover'], false],'#bdb7b7','#5d696f']
   },
   'layout': {
-    visibility:'visible'
+    visibility:'none'
   }
 });
 
@@ -276,7 +276,7 @@ map.on('mouseleave', 'visits', (e) => {
     ['boolean', ['feature-state', 'hover'], false],'#bdb7b7','#5d696f']
   },
   'layout': {
-    visibility:'none'
+    visibility:'visible'
   }
 });
 
@@ -625,7 +625,9 @@ map.addLayer({
 
   const HHI_legend = document.getElementById('HHI-legend');
   const visits_legend = document.getElementById('visits-legend');
-  HHI_legend.style.display = 'none';
+
+  HHI_legend.style.display = 'block';
+  visits_legend.style.display ='none';
 
   //when HHI button clicked
   document.getElementById('HHI').addEventListener('click',() => {
