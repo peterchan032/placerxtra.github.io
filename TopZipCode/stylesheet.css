@@ -440,17 +440,13 @@ a {
     left: 10px;
     z-index: 1;
 }
-/*
-.visits-legend {
-    position: absolute;
-    bottom: 40px;
-    left: 10px;
-    z-index: 1;
-    width: 220px;
-    height: auto;
 
+.visits-legend {
     background-color: #fff;
     border-radius: 3px;
+    width: 220px;
+    height: 220px;
+    bottom: 40px;
     box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
     font-family: 'Open Sans', sans-serif;
     font-style: normal;
@@ -458,9 +454,12 @@ a {
     font-size: 13px;
     line-height: 20px;
     padding: 10px;
+    position: absolute;
+    left: 10px;
+    z-index: 1;
 }
-*/
-.HHI-legend,.visits-legend {
+
+.HHI-legend {
     background-color: #fff;
     border-radius: 3px;
     width: 220px;

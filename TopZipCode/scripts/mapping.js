@@ -120,7 +120,7 @@ map.on('load', function(){
     'case',
     ['boolean', ['feature-state', 'hover'], false],
     '#675f5f',
-    '#e0dcdc'
+    '#1d1d20'
     ]
     },
 
@@ -169,8 +169,8 @@ map.on('mouseleave', 'Median Household Income', (e) => {
     'source':HHI_src,
     'source-layer':HHI_srcLayer,
     'paint':{
-    'fill-color': '#eeeff2',
-    'fill-opacity': 0.2,
+    'fill-color': '#e2e2e4',
+    'fill-opacity': 0.35,
     'fill-outline-color': '#b0abab'
     },
     'layout': {
@@ -185,10 +185,10 @@ map.on('mouseleave', 'Median Household Income', (e) => {
     'source-layer':HHI_srcLayer,
     'paint':{
             'line-width': 1,
-            'line-color':  '#f1eaea'
+            'line-color':  '#1d1d20'
             },
     'layout': {
-                'visibility': 'none'
+                'visibility': 'visible'
             }
 });
 
