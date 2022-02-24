@@ -20,58 +20,106 @@
       rel="stylesheet"
     />
 
+    <link rel="icon" href="https://www.placer.ai/wp-content/uploads/2018/08/favicon-310x310-300x300.png" sizes="192x192">
+
      <link rel="stylesheet" href="stylesheet.css"> 
    
 </head>
 
 <body>
   <div id ='map'></div>
-  <div class = 'footer'> 
-    <p>*True Trade Area (2021/01/01 to 2021/12/31) for Trader Joe's is based on 70% traffic volume and 15 mi radius. </p>
-  </div>
-  <div id='header' class='header'>
-    <h2 id = 'title' class = 'header'> Key Demographics </h2>
-    <h2 id = 'property' class='property'> Trader Joe's</h2>
-    <img id='logo' src="assets/image/Placer_Logo_ai.png" alt="Placer.ai">
-  </div>
-    <div class="verticalLine"></div>
 
-    
+  <div class = 'wrapper'>
+    <div class = 'footer'> 
+      <p>*True Trade Area (2021/01/01 to 2021/12/31) for Trader Joe's is based on 70% traffic volume and 15 mi radius. </p>
+    </div>
+    <div id='header' class='header'>
+      
+     <div class = 'title'>
+      <hr id="verticalLine"/>
+      <h3> Key Demographics </h3> 
+    </div>
 
-<!--
-  <div id='menu'></div>
--->
+
+    <div class = 'property'>
+      <hr id="verticalLine2"/>
+      <p> 130 Court St, Brooklyn, 11201, NY</p>
+      <img id ='property_logo' src="assets/image/Trader_Joes_Logo.svg" alt="Trader Joes">
+    </div>
+
+
+      <div class = 'date'>
+        <img id='date-icon' src="assets/image/Calendar-icon-18px.svg" alt="Calendar icon" url=''>
+        <h3>Jan 1st, 2021 - Dec 31st, 2021</h3>
+      </div>
+
+    <div class = 'logo'>
+      <a href="https://www.placer.ai/">
+        <img id='logo' src="assets/image/Placer_Logo_ai.svg" alt="Placer.ai" url=''>
+      </a>
+    </div>
+      
+
+    </div>
+  </div>
+
+  
+
   <div class = 'buttons'>
-    <button id = 'HHI'><h4>Median Household Income</h4></button>
-    <button id= 'PopD'><h4>Population Density</h4></button>
-    <button id= 'Age'><h4>Age</h4></button>
-    <button id= 'HHV'><h4> Median House Value</h4></button>
+    <button id = 'HHI'>
+      <img id='HHI-icon' src="assets/image/coin-icon-18px.svg" alt="HHI-icon" url=''>
+      <h4>Median HHI</h4>
+    </button>
+    <button id= 'PopD'>
+      <img id='pop-icon' src="assets/image/Color=blue.svg" alt="pop-icon" url=''>
+      <h4>Population Density</h4>
+    </button>
+    <!--
+    <button id= 'Ethnicity'>
+      <img id='Ethnicity-icon' src="assets/image/Ethnicity-icon-18px.svg" alt="Ethnicity-icon" url=''>
+      <h4>Ethnicity</h4>
+    </button>
+    <button id= 'EDU'>
+      <img id='edu-icon' src="assets/image/Education-icon-18px.svg" alt="edu-icon" url=''>
+      <h4>% Bachelor Degrees and above</h4>
+    </button>
+  -->
+  </div>
+
+  <div id="HHI-legend" class="legend">
+  <div id = 'legend-title'>
+  <h4>Median Household Income</h4>
+  </div>
+  <div id ='legend-group'>
+    <div id = 'g1'><span style="background-color: #b2d8d8"></span><p>$8,493 - $51,563</p></div>
+    <div id = 'g2'><span style="background-color: #66b2b2"></span><p>$51,563 - $73,633</p></div>
+    <div id = 'g3'><span style="background-color: #007f80"></span><p>$73,633 - $96,322</p></div>
+    <div id = 'g4'><span style="background-color: #006666"></span><p>$96,322 - $128,676</p></div>
+    <div id = 'g5'><span style="background-color: #004c4c"></span><p>$128,676 - $250,000</p></div>
+    <p>*2019 ACS data at CBG level</p>
+  </div>
+    </div>
+  
+
   </div>
 
   <div id="popD-legend" class="legend">
+  <div id = 'legend-title'>
   <h4>Population Density</h4>
-
-  <div><span style="background-color: #ffffb3"></span>8,539 - 23,541</div>
-  <div><span style="background-color: #fecc5c"></span>23,541 - 106,468</div>
-  <div><span style="background-color: #fd8d3c"></span>106,468 - 177,682</div>
-  <div><span style="background-color: #f03b20"></span>177,682 - 499,356</div>
-
-  <p>*2019 ACS data at CBG level</p>
-
   </div>
-  <div id="HHI-legend" class="legend">
-  <h4>Median Household Income</h4>
-
-  <div><span style="background-color: #b2d8d8"></span>51,563 - 73,633</div>
-  <div><span style="background-color: #66b2b2"></span>73,633 - 96,322</div>
-  <div><span style="background-color: #007f80"></span>96,322 - 128,676</div>
-  <div><span style="background-color: #006666"></span>128,676 - 250,000</div>
-  <div><span style="background-color: #004c4c"></span>250,000+ </div>
-
+  <div id="legend-group">
+  <div id = 'g1'><span style="background-color: #f0f4ff"></span><p>1 - 3,278</p></div>
+  <div id = 'g2'><span style="background-color: #bcd6e7"></span><p>3,278 - 8,539</p></div>
+  <div id = 'g3'><span style="background-color: #6bafd6"></span><p>8,539 - 23,541</p></div>
+  <div id = 'g4'><span style="background-color: #3184bf"></span><p>23,541 - 56,185</p></div>
+  <div id = 'g5'><span style="background-color: #08529b"></span><p>56,185 - 499,356</p></div>
   <p>*2019 ACS data at CBG level</p>
-
   </div>
-  <script src="scripts/mapping.js"></script> 
+  </div>
+  </dv>
+  <script type="text/javascript" src="scripts/data.js"></script>
+  <script type="text/javascript" src="scripts/mapping.js"></script> 
+  
 </body>
 
 </html>
