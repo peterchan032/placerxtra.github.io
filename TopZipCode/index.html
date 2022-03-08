@@ -29,7 +29,7 @@
 <body>
   <div id ='map'></div>
 
-      <div id='header' class='header'>
+    <div id='header' class='header'>
       
      <div class = 'title'>
       <hr id="verticalLine"/>
@@ -56,44 +56,102 @@
 
     </div>
 
+    <div id = 'footer'> 
+      <p>*Zip Codes with Visits are Highlighted in Black.<span id='dismiss'> Dismiss</span> </p>
+    </div>
 
     <div class = 'buttons'>
     <button id = 'HHI'>
       <img id='HHI-icon' src="assets/image/coin-icon-18px.svg" alt="HHI-icon" url=''>
       <h4>Median HHI</h4>
     </button>
+    <!--
+    <button id= 'PopD'>
+      <img id='pop-icon' src="assets/image/Color=blue.svg" alt="pop-icon" url=''>
+      <h4>Population Density</h4>
+    </button>
+  -->
     <button id= 'visits'>
-      <img id='pop-icon' src="assets/image/VisitsIcon.svg" alt="visits-icon" url=''>
+      <img id='visits-icon' src="assets/image/VisitsIcon.svg" alt="visits-icon" url=''>
       <h4>% of Visits</h4>
     </button>
-
   </div>
+
+<div class = 'table'>
+    <div id = 'table-title'>
+      <h4>Demographic Data</h4>
+    </div>
+    <div id = 'table-content'>
+      <table>
+        <tr id = 'table-head'>
+          <th> </th>
+          <th>1 mi</th>
+          <th>3 mi</th>
+          <th>5 mi</th>
+          <th>70% TTA</th>
+        </tr>
+        <tr id = 'row1'>
+          <td id='table-row'>Population</td>
+          <td>13,656</td>
+          <td>142,902</td>
+          <td>360,676</td>
+          <td>68,461</td>
+        </tr>
+        <tr id = 'row2'>
+          <td id='table-row'>Households</td>
+          <td>6,282</td>
+          <td>58,522</td>
+          <td>137,952</td>
+          <td>28,625</td>
+        </tr>
+        <tr id = 'row3'>
+          <td id='table-row'>Median HHI</td>
+          <td>$69,762</td>
+          <td>$59,045</td>
+          <td>$59,394</td>
+          <td>$63,934</td>
+        </tr>
+        <tr id = 'row4'>
+          <td id='table-row'>Average HHI</td>
+          <td>$92,213</td>
+          <td>$82,879</td>
+          <td>$81,782</td>
+          <td>$90,892</td>
+        </tr>
+      </table>
+    </div>
+</div>
 
   <div id="HHI-legend" class="HHI-legend">
-  <div id = 'legend-title'>
+  <div id='legend-header'>
   <h4>Median Household Income</h4>
+  <p>Aggregated by Census Block Groups (2019)</p>
   </div>
-  <div id ='legend-group'>
-    <div id = 'g1'><span style="background-color: #ACCAC9"></span><p>$0 - $42,051</p></div>
-    <div id = 'g2'><span style="background-color: #72AEB6"></span><p>$42,051 - $56,107</p></div>
-    <div id = 'g3'><span style="background-color: #4692B1"></span><p>$56,107 - $72,813</p></div>
-    <div id = 'g4'><span style="background-color: #2A70A1"></span><p>$72,813 - $97,079</p></div>
-    <div id = 'g5'><span style="background-color: #094973"></span><p>$97,079 - $250,000</p></div>
-    <p>*2019 ACS data at zip code level</p>
+  <div id='legend-group'>
+    <div id = 'g1'><span style="background-color: #094973;border-style: solid;border-width: thin;border-radius: 2px"></span><p>$97,079 - $250,000</p></div>
+    <div id = 'g2'><span style="background-color: #2A70A1; border-style: solid;border-width: thin;border-radius: 2px"></span><p>$72,813 - $97,079</p></div>
+    <div id = 'g3'><span style="background-color: #4692B1; border-style: solid;border-width: thin;border-radius: 2px"></span><p>$56,107 - $72,813</p></div>
+    <div id = 'g4'><span style="background-color: #72AEB6;border-style: solid;border-width: thin;border-radius: 2px"></span><p>$42,051 - $56,107</p></div>
+    <div id='g5'><span style="background-color: #ACCAC9;border-style: solid;border-width: thin;border-radius: 2px"></span><p>$0 - $42,051</p></div> 
+    <div id = 'g6'><span style="background-color: rgba(255, 190, 94, 0.2);border-style: solid; border-width: 2px;border-radius: 2px;border-color: #FFBE5E;"></span><p>True Trade Area (70%, 50 miles)</p></div>
+    <p></p>
   </div>
   </div>
-
   <div id="visits-legend" class="visits-legend">
-    <div id = 'legend-title'>
+    <div id='legend-header'>
       <h4>% of Visits from Zip Code</h4>
     </div>
      <div id ='legend-group'>
-    <div id = 'g1'><span style="background-color: #EED1E2"></span><p>0.17% - 0.24%</p></div>
-    <div id = 'g2'><span style="background-color: #CBA9ED"></span><p>0.24% - 0.46%</p></div>
-    <div id = 'g3'><span style="background-color: #A283EA"></span><p>0.46% - 1.04%</p></div>
-    <div id = 'g4'><span style="background-color: #7861D9"></span><p>1.04% - 5.73%</p></div>
-    <div id = 'g5'><span style="background-color: #4D43BB"></span><p>5.73% - 15.95%</p></div>
+      <div id = 'g1'><span style="background-color: #4D43BB;border-style: solid;border-width: thin;border-radius: 2px"></span><p>5.73% - 15.95%</p></div>
+      <div id = 'g2'><span style="background-color: #7861D9;border-style: solid;border-width: thin;border-radius: 2px"></span><p>1.04% - 5.73%</p></div>
+      <div id = 'g3'><span style="background-color: #A283EA;border-style: solid;border-width: thin;border-radius: 2px"></span><p>0.46% - 1.04%</p></div>
+      <div id = 'g4'><span style="background-color: #CBA9ED;border-style: solid;border-width: thin;border-radius: 2px"></span><p>0.24% - 0.46%</p></div>
+      <div id = 'g5'><span style="background-color: #EED1E2;border-style: solid;border-width: thin;border-radius: 2px"></span><p>0.17% - 0.24%</p></div>
+      <div id = 'g6'><span style="background-color: rgba(255, 190, 94, 0.2);border-style: solid;border-width: 2px;border-radius: 2px;border-color: #FFBE5E"></span><p>True Trade Area (70%, 50 miles)</p></div>
   </div>
+
+
+
     <!--
     <div id='v-legend-color'></div>
 
@@ -107,7 +165,7 @@
       -->
   </div>
 
-  <script src="scripts/mapping.js"></script> 
+  <script src="scripts/main.js"></script> 
 </body>
 
 </html>

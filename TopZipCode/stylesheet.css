@@ -40,12 +40,12 @@ padding: 15px 32px 15px 16px;
 
 .title h3{
 position: absolute;
-top:  18px;
+top:  16px;
 left:  16px;
 font-family: 'Open Sans',sans-serif;
 font-style: normal;
 font-weight: bold;
-font-size: 18px;
+font-size: 20px;
 
 color: #4D4D4D;
 
@@ -252,31 +252,44 @@ margin-top: 0px;
 }
 
 /*---------------footer-------------*/
-.footer {
+#footer {
     position: absolute;
     display: inline-block;
-    bottom: 0px;
-    height: 15px;
-    width: auto;
+    bottom: 3.5%;
+    height: 16px;
+    width: 307px;
+    border-radius: 2px;
+    left: 10px;
 
     /* background/Background/Normal */
 
     background: #FFFFFF;
 
     font-family: font-family: 'Open Sans', sans-serif;
-    font-size: 10px;
+    font-size: 11.5px;
     line-height: 15px;
     margin-top: 0px;
     margin-left: 0px;
     margin-bottom: 0px;
-    font-weight: 600;
+    font-weight: 500;
+    align-items: center;
 
+}
+
+
+#dismiss {
+    color: blue;
+    cursor:pointer;
+}
+
+#dismiss:focus ~ .footer{
+    display: hidden;
 }
 
 .mapboxgl-ctrl-logo {
     position: absolute;
     left: 10px;
-    bottom: 5px;
+    bottom: 0%;
 }
 
 
@@ -307,6 +320,7 @@ a {
     text-decoration: none;
     color: #2dc4b2;
    }
+
 
 
 /*-----------------layer selections-----------*/
@@ -359,7 +373,7 @@ a {
     }
 
 
-    .buttons #HHI, .buttons #visits {
+    .buttons #HHI, .buttons #visits, .buttons #PopD {
         /* Pill */
 
         /* Auto layout */
@@ -392,43 +406,144 @@ a {
     }
 
 
-    #HHI:focus, #visits:focus {
+    #HHI:focus, #visits:focus, #PopD:focus {
         background-color: #49565D;  
         color: white;
     }
 
-    #HHI:focus >h4, #visits:focus >h4 {
+    #HHI:focus >h4, #visits:focus >h4, #PopD:focus >h4 {
         color: white;  
     }
 
-    #HHI:hover, #visits:hover  {
+    #HHI:hover, #visits:hover, #PopD:hover {
         background-color: #49565D;
 
     }
 
-    #HHI:hover >h4, #visits:hover >h4 {
+    #HHI:hover >h4, #visits:hover >h4, #PopD:hover >h4{
         color: white; 
     }
 
-    #HHI:hover >img,#visits:hover >img  {
+    #HHI:hover >img,#visits:hover >img, #PopD:hover >img  {
         filter: invert(100%) sepia(100%) saturate(0%) hue-rotate(126deg) brightness(104%) contrast(102%)    
     }
 
    
-    #HHI:focus >img,#visits:focus >img {
+    #HHI:focus >img,#visits:focus >img, #PopD:focus >img {
         filter: invert(100%) sepia(100%) saturate(0%) hue-rotate(126deg) brightness(104%) contrast(102%)    
     }
 
+/*-----------------table ------------------------*/
+.table {
+    background-color: #fff;
+    border-radius: 3px;
+    font-family: 'Open Sans', sans-serif;
+    line-height: 20px;
 
+    padding: 10px;
+    width: 444px;
+    height: 238px;
+    right: 13px;
+    bottom: 2%;
+
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    position: absolute;
+
+
+}
+
+.table #table-title{
+    background-color: #F2F2F2; /*F2F2F2*/
+
+    position: absolute;
+    left: 0px;
+    width: 100%;
+    top: 0;
+
+}
+
+#table-title h4{
+    font-family: Open Sans;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 18px;
+    line-height: 25px;
+    display: flex;
+    align-items: center;
+
+    /* White */
+
+    color: #49565D; /*5E63E5*/
+
+    margin:10px 51px 10px 20px;
+
+}
+
+.table table{
+
+    width: 444px;
+    border-collapse: collapse
+
+}
+
+.table table td {
+    border-top: thin solid #D0D0D0; 
+    text-align: center;
+}
+
+.table table th {
+    text-align:  center;
+}
+
+#table-row {
+    font-weight: bold;
+}
+
+
+#table-content {
+    position: absolute;
+    top:  44px;
+    left: 0px;
+}
+
+#table-head {
+    background: #FFFFFF;
+    border: 1px solid #D0D0D0;
+
+    width: 444px;
+    height: 32px;
+
+    /* Inside auto layout */
+
+    flex: none;
+    order: 1;
+    flex-grow: 0;
+    margin: 0px 0px;
+}
+
+
+#row1,#row2,#row3, #row4 {
+    width: 444px;
+    height: 40px;
+
+    background: #FFFFFF;
+
+    /* Inside auto layout */
+
+    flex: none;
+    flex-grow: 0;
+    margin: 0px 0px;
+}
 
 
 /*------------------legend ----------------------*/
 .legend {
     background-color: #fff;
     border-radius: 3px;
-    width: 220px;
-    height: 248px;
-    bottom: 40px;
+    left: 10px;
+    bottom: 6%;
     box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
     font-family: 'Open Sans', sans-serif;
     font-style: normal;
@@ -437,52 +552,85 @@ a {
     line-height: 20px;
     padding: 10px;
     position: absolute;
-    left: 10px;
+    
     z-index: 1;
 }
 
 .visits-legend {
     background-color: #fff;
     border-radius: 3px;
-    width: 220px;
-    height: 220px;
-    bottom: 40px;
+    width: 307px;
+    height: 144px;
+    left: 10px;
+    bottom: 6%;
     box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
     font-family: 'Open Sans', sans-serif;
     font-style: normal;
     font-weight: 600;
     font-size: 13px;
     line-height: 20px;
-    padding: 10px;
     position: absolute;
-    left: 10px;
-    z-index: 1;
 }
 
 .HHI-legend {
     background-color: #fff;
     border-radius: 3px;
-    width: 220px;
-    height: 248px;
-    bottom: 40px;
+    width: 307px;
+    height: 144px;
+    bottom: 6%;
+    left: 10px;
     box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
     font-family: 'Open Sans', sans-serif;
     font-style: normal;
     font-weight: 600;
     font-size: 13px;
     line-height: 20px;
-    padding: 10px;
     position: absolute;
-    left: 10px;
-    z-index: 1;
 }
 
-#legend-title {
+#legend-header {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 14px 16px 8px;
+
     position: absolute;
-    width: 169px;
-    height: 20px;
+    width: 130px;
+    height: 144px;
+
+    /* background/hover */
+
+    background: #F2F2F2;
+    border-radius: 4px 0px 0px 4px;
+
+    /* Inside auto layout */
+
+    flex: none;
+    order: 0;
+    align-self: stretch;
+    flex-grow: 0;
+    margin: 0px 0px;
+}
+
+#legend-header h4{
+    position: static;
+    height: 60px;
     left: 16px;
-    top: 20px;
+    right: -51px;
+    top: calc(50% - 60px/2 - 28px);
+
+    font-family: Open Sans;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 17px;
+    line-height: 20px;
+    /* or 118% */
+
+
+    /* Text/Primary */
+
+    color: #333333;
+
 
     /* Inside auto layout */
 
@@ -492,22 +640,63 @@ a {
     margin: 0px 0px;
 }
 
-#legend-title h4{
-    /* Body Medium */
+#legend-header p{
+    position: static;
+    width: 114px;
+    height: 62px;
+    left: calc(50% - 128px/2 + 15px);
+    top: calc(50% - 62px/2 + 33px);
+
+    /* Italic Headline */
 
     font-family: Open Sans;
-    font-style: normal;
-    font-weight: 600;
+    font-style: italic;
+    font-weight: normal;
     font-size: 13px;
-    line-height: 20px;
-    margin: 0px;
+    line-height: 18px;
+    /* or 138% */
+
+    display: flex;
+    align-items: center;
+
+    color: #333333;
+
+
+    /* Inside auto layout */
+
+    flex: none;
+    order: 1;
+    flex-grow: 0;
+    margin: 0px 0px;
 }
 
 #legend-group {
+    /* Auto layout */
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 16px 16px 16px 24px;
+
     position: absolute;
-    left: 16px;
-    top: 56px;
-    width: auto;
+    width: 150px;
+    height: 144px;
+    left: calc(50% - 177px/2 + 57px);
+    top: calc(50% - 144px/2);
+
+    /* White */
+
+    background: #FFFFFF;
+    border-radius: 0px 4px 4px 0px;
+
+    /* Inside auto layout */
+
+    flex: none;
+    order: 1;
+    align-self: stretch;
+    flex-grow: 0;
+    margin: 0px 0px;
 }
 
 #legend-group #g1 {
@@ -517,16 +706,17 @@ a {
     padding: 0px;
 
     position: static;
-    width: 132px;
-    height: 24px;
-    left: 0px;
-    top: 0px;
+    left: 24px;
+    right: 0px;
+    height: 18px;
+    top: 0%;
+    bottom: 0%;
     /* Inside auto layout */
 
     flex: none;
     order: 0;
     flex-grow: 0;
-    margin: 6px 0px;
+    margin: 1px 0px;
 }
 
 #legend-group #g2 {
@@ -536,8 +726,8 @@ a {
     padding: 0px;
 
     position: static;
-    width: 132px;
-    height: 24px;
+    width: auto;
+    height: 18px;
     left: 0px;
     top: 32px;
     /* Inside auto layout */
@@ -545,7 +735,7 @@ a {
     flex: none;
     order: 0;
     flex-grow: 0;
-    margin: 6px 0px;
+    margin: 1px 0px;
 }
 
 #legend-group #g3 {
@@ -555,8 +745,8 @@ a {
     padding: 0px;
 
     position: static;
-    width: 132px;
-    height: 24px;
+    width: auto;
+    height: 18px;
     left: 0px;
     top: 64px;
     /* Inside auto layout */
@@ -564,7 +754,7 @@ a {
     flex: none;
     order: 0;
     flex-grow: 0;
-    margin: 6px 0px;
+    margin: 1px 0px;
 }
 
 #legend-group #g4 {
@@ -574,8 +764,8 @@ a {
     padding: 0px;
 
     position: static;
-    width: 132px;
-    height: 24px;
+    width: auto;
+    height: 18px;
     left: 0px;
     top: 96px;
     /* Inside auto layout */
@@ -583,7 +773,7 @@ a {
     flex: none;
     order: 0;
     flex-grow: 0;
-    margin: 6px 0px;
+    margin: 1px 0px;
 }
 
 #legend-group #g5 {
@@ -593,8 +783,8 @@ a {
     padding: 0px;
 
     position: static;
-    width: 150px;
-    height: 24px;
+    width: auto;
+    height: 18px;
     left: 0px;
     top: 128px;
     /* Inside auto layout */
@@ -602,27 +792,61 @@ a {
     flex: none;
     order: 0;
     flex-grow: 0;
-    margin: 6px 0px;
+    margin: 1px 0px;
 }
 
+#legend-group #g6 {
+    display: flex;
+    flex-direction: row;
+    align-items: left;
+    padding: 0px;
+
+    position: static;
+    width: auto;
+    height: auto;
+    left: 0px;
+    top: 128px;
+    /* Inside auto layout */
+
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+    margin: 1px 0px;
+}
 
 
 .HHI-legend p, .visits-legend p {
+    /* Graph/Y Axis */
+
     font-family: Open Sans;
     font-style: normal;
-    font-weight: normal;
+    font-weight: 600;
     font-size: 12px;
     line-height: 16px;
-    width: auto;
+    display: flex;
+    align-items: center;
+
+    /* Text/Primary */
+
+    color: #333333;
+
+    /* Inside auto layout */
+
+    flex: none;
+    order: 1;
+    flex-grow: 0;
+    margin: 0px 0px;
+    width: 120px;
 }
  
 .HHI-legend div span, .visits-legend div span {
-    border-radius: 0%;
+    border-radius: 1%;
     display: inline-block;
-    height: 12px;
+    height: 18px;
     margin-right: 14px;
-    width: 12px;
+    width: 18px;
     padding: 5px;
+
 }
 
 /*
