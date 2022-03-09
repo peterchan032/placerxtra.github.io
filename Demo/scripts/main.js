@@ -1,29 +1,43 @@
 //*--------------------- variable -----------------------*/
-/*
-const url = "https://peterchan032.github.io/placerxtra.github.io/Data/Untitled.txt";
 
-function getLatLng(){
-   let value= JSON.parse($.getJSON({ 
-      url: url, 
-      async: false
-   }).responseText);
+const url = "https://peterchan032.github.io/placerxtra.github.io/Data/Untitled_v2.txt";
 
-   let lat = value.position.lat;
-   let lng = value.position.lng;
-   return [lng,lat];
+
+const countyToMSA = "https://peterchan032.github.io/placerxtra.github.io/Data/Fips_CBSA.txt";
+const HHI_MSA_group = "https://peterchan032.github.io/placerxtra.github.io/Data/HHI_CBSA_Groups_v2.txt";
+const popD_MSA_group = "https://peterchan032.github.io/placerxtra.github.io/Data/popDensity_CBSA_Groups_v2.txt";
+
+
+const getFromJson = ()=>{
+  let items = JSON.parse($.getJSON({
+    url:url,
+    async:false
+  }).responseText);
+  return items
+};
+
+const getMSAFromCounty = (countyCode)=>{
+  let data = $.getJSON({
+    url:countyToMSA,
+    async:false}).responseText;
+
+  let obj = JSON.parse(data);
+  
+  let MSA = obj[`${countyCode}`];
+
+  return MSA
+  
+};
+
+const getGroup = (MSA,Group)=>{
+  let data = JSON.parse($.getJSON({
+    url:Group,
+    async:false}).responseText);
+
+  let grouping = data[`${MSA}`];
+  return grouping
 }
 
-function getTTA(){
-  let value = JSON.parse($.getJSON({
-      url:url,
-      async: false}).responseText);
-  let geometry = value.geometry;
-
-  return geometry;
-}
-*/
-
-/* put it in html in front of 
 
 const getIncome = (number, isLocale = false) => {
      if(isLocale) {
@@ -38,28 +52,66 @@ const getFromSession = () => {
   if (sessionStorage.getItem('demographic_data')){
     let items = JSON.parse(sessionStorage.getItem('demographic_data'));
     console.log(items);
-    return items;
+    return items
   }
 };
 
-*/
+function getCountyFromGeocoding(){
+  let items = JSON.parse($.getJSON({
+    url:geocodingAPI,
+    async:false
+  }).responseText);
+  let location = items.results[0].county_fips;
+  return location
+}
+
+const center = [getFromJson()?.position.lng, getFromJson()?.position.lat];
+const tradeArea = getFromJson()?.geometry;
+
+const trafficVol = document.getElementById('trafficVol').innerHTML = getFromSession()?.content.map((item,index)=>{
+    return item.trade_area_variant.split(':')[1]}) ?? getFromJson()?.content.map((item,index)=>{
+    return item.trade_area_variant.split(':')[1]});
 
 
-const center = [getFromSession()?.position.lng, getFromSession()?.position.lat];
+const date = document.getElementById('date').innerHTML = getFromSession()?.date ?? getFromJson().date;
+const dateFn = document.getElementById('date-fn').innerHTML = getFromSession()?.date ?? getFromJson().date;
 
-const tradeArea = getFromSession()?.geometry;
+const miles = document.getElementById('miles').innerHTML = getFromSession()?.max_distance ?? getFromJson()?.max_distance;
 
-const trafficVol = document.getElementById('trafficVol').innerHTML = getFromSession()?.traffic_volume ?? "NA";
+const address = document.getElementById('address').innerHTML = getFromSession()?.adderss ?? getFromJson()?.address;
 
+const propertyName = document.getElementById('propertyName').innerHTML = getFromSession()?.name ?? getFromJson().name;
+const propertyNameFnote = document.getElementById('propertyName-fn').innerHTML = getFromSession()?.name ?? getFromJson().name;
 
-const date = document.getElementById('date').innerHTML = getFromSession()?.date ?? "test";
+const geocodingAPI = `https://geo.fcc.gov/api/census/area?lat=${center[1]}&lon=${center[0]}&censusYear=2010&format=json`;
 
-const miles = document.getElementById('miles').innerHTML = getFromSession()?.max_distance ?? "NA";
+const countyCode = getCountyFromGeocoding();
 
-const address = document.getElementById('address').innerHTML = getFromSession()?.adderss ?? "NA";
+const MSA = getMSAFromCounty(countyCode);
+const HHIGroup = getGroup(MSA,HHI_MSA_group);
+const popGroup = getGroup(MSA,popD_MSA_group);
 
-const propertyName = document.getElementById('propertyName').innerHTML = getFromSession()?.property_name ?? "NA";
-const propertyNameFnote = document.getElementById('propertyName-fn').innerHTML = getFromSession()?.property_name ?? "NA";
+const HHI_1 = document.getElementById('hhi_1')
+  .innerHTML = `<p>${getIncome(HHIGroup[0][0],true)} - ${getIncome(HHIGroup[0][1],true)}`;
+const HHI_2 = document.getElementById('hhi_2')
+  .innerHTML = `<p>${getIncome(HHIGroup[1][0],true)} - ${getIncome(HHIGroup[1][1],true)}`;
+const HHI_3 = document.getElementById('hhi_3')
+  .innerHTML = `<p>${getIncome(HHIGroup[2][0],true)} - ${getIncome(HHIGroup[2][1],true)}`;
+const HHI_4 = document.getElementById('hhi_4')
+  .innerHTML = `<p>${getIncome(HHIGroup[3][0],true)} - ${getIncome(HHIGroup[3][1],true)}`;
+const HHI_5 = document.getElementById('hhi_5')
+  .innerHTML = `<p>${getIncome(HHIGroup[4][0],true)} - ${getIncome(HHIGroup[4][1],true)}`;
+
+const popD_1 = document.getElementById('popD_1')
+  .innerHTML = `<p>${Math.round(popGroup[0][0])} - ${Math.round(popGroup[0][1])}`;
+const popD_2 = document.getElementById('popD_2')
+  .innerHTML = `<p>${Math.round(popGroup[1][0])} - ${Math.round(popGroup[1][1])}`;
+const popD_3 = document.getElementById('popD_3')
+  .innerHTML = `<p>${Math.round(popGroup[2][0])} - ${Math.round(popGroup[2][1])}`;
+const popD_4 = document.getElementById('popD_4')
+  .innerHTML = `<p>${Math.round(popGroup[3][0])} - ${Math.round(popGroup[3][1])}`;
+const popD_5 = document.getElementById('popD_5')
+  .innerHTML = `<p>${Math.round(popGroup[4][0])} - ${Math.round(popGroup[4][1])}`;
 
 
 //layers from Mapbox studio
@@ -78,15 +130,15 @@ const mapLayers = [
           "step",
           ["get", "HHI"],
           "#b2d8d8",
-          51563,
+          Number(HHIGroup[0][1]),
           "#b2d8d8",
-          73633,
+          Number(HHIGroup[1][1]),
           "#66b2b2",
-          96322,
+          Number(HHIGroup[2][1]),
           "#007f80",
-          128676,
+          Number(HHIGroup[3][1]),
           "#006666",
-          250001,
+          Number(HHIGroup[4][1]),
           "#004c4c"
         ],
         "hsla(0, 0%, 0%, 0)"
@@ -120,15 +172,15 @@ const mapLayers = [
     "step",
     ["get", "popDensity"],
     "#f0f4ff",
-    3278,
+    Number(popGroup[0][1]),
     "#f0f4ff",
-    8539,
+    Number(popGroup[1][1]),
     "#bcd6e7",
-    23541,
+    Number(popGroup[2][1]),
     "#6bafd6",
-    56185,
+    Number(popGroup[3][1]),
     "#3184bf",
-    499356,
+    Number(popGroup[4][1]),
     "#08529b"
   ],
   "hsla(0, 0%, 0%, 0)"
@@ -149,14 +201,9 @@ const mapLayers = [
   }
 ];
 
-const tradeAreaGroups = (tradeArea ?? []).map((item,index) => {
-  return [{
-    id:`TradeArea-${index}`,
-    type:'fill',
+const tradeAreaGroupsSoure = tradeArea.map((item,index)=>{
+  return {
     src:`TradeArea_${index}`,
-    fillcolor:item.color,
-    fillOpacity:0.5,
-    visibility:'visible',
     data:{
     "type": "Feature",
       "properties": {"trafficVol": "40%"},
@@ -165,10 +212,28 @@ const tradeAreaGroups = (tradeArea ?? []).map((item,index) => {
           "coordinates": item.geoJson.coordinates
       }
     }
+  }
+});
+
+const tradeAreaGroups = (tradeArea ?? []).map((item,index) => {
+  return [{
+    id:`TradeArea-${index}`,
+    type:'fill',
+    src:`TradeArea_${index}`,
+    fillcolor:item.color,
+    fillOpacity:0.2,
+    visibility:'visible',
+    data:{
+    "type": "Feature",
+      "geometry": {
+          "type": "MultiPolygon",
+          "coordinates": item.geoJson.coordinates
+      }
+    }
   },
   {
     id:`Trade-Area-outline-${index}`,
-    src: `Trade-Area-outline-${index}`,
+    src: `TradeArea_${index}`,
     type:'line',
     lineColor: item.color,
     lineOpacity: 0.6,
@@ -203,10 +268,8 @@ const mapOptions = {
   container: 'map',
   style: defaultStyles,
   center: center,
-  zoom: 11.7
+  zoom: 11.3
 };
-
-
 
 
 
@@ -270,7 +333,7 @@ mapLayers.map((layer)=>{
 
   });
 
-tradeAreaGroups.map((layer)=>{
+tradeAreaGroupsSoure.map((layer)=>{
     return map.addSource(layer.src,{
       'type':'geojson',
       'data':layer.data

@@ -252,6 +252,7 @@ margin-top: 0px;
 }
 
 /*---------------footer-------------*/
+/*
 #footer {
     position: absolute;
     display: inline-block;
@@ -259,9 +260,9 @@ margin-top: 0px;
     height: 16px;
     width: 307px;
     border-radius: 2px;
-    left: 10px;
+    left: 40%;
 
-    /* background/Background/Normal */
+
 
     background: #FFFFFF;
 
@@ -275,11 +276,39 @@ margin-top: 0px;
     align-items: center;
 
 }
+*/
+
+#footer{
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    padding: 6px 8px;
+
+    position: absolute;
+    width: 400px;
+    height: 32px;
+    left: 35%;
+    bottom: 3.5%;
+
+    font-family: Open Sans;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 13px;
+    line-height: 20px;
+
+    /* white */
+
+    background: #FFFFFF;
+    border-radius: 3px;
+}
 
 
 #dismiss {
-    color: blue;
+    color: #676DFD;
     cursor:pointer;
+
+    position: absolute;
+    right: 2.5%;
 }
 
 #dismiss:focus ~ .footer{
@@ -559,8 +588,8 @@ a {
 .visits-legend {
     background-color: #fff;
     border-radius: 3px;
-    width: 307px;
-    height: 144px;
+    width: 315px;
+    height: 164px;
     left: 10px;
     bottom: 6%;
     box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
@@ -575,8 +604,8 @@ a {
 .HHI-legend {
     background-color: #fff;
     border-radius: 3px;
-    width: 307px;
-    height: 144px;
+    width: 315px;
+    height: 164px;
     bottom: 6%;
     left: 10px;
     box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
@@ -596,7 +625,7 @@ a {
 
     position: absolute;
     width: 130px;
-    height: 144px;
+    height: 164px;
 
     /* background/hover */
 
@@ -641,11 +670,11 @@ a {
 }
 
 #legend-header p{
-    position: static;
+    position: absolute;
     width: 114px;
     height: 62px;
     left: calc(50% - 128px/2 + 15px);
-    top: calc(50% - 62px/2 + 33px);
+    top: calc(50% - 62px/2 + 40px);
 
     /* Italic Headline */
 
@@ -677,12 +706,12 @@ a {
     flex-direction: column;
     justify-content: center;
     align-items: flex-start;
-    padding: 16px 16px 16px 24px;
+    padding: 16px 16px 16px 20px;
 
     position: absolute;
     width: 150px;
     height: 144px;
-    left: calc(50% - 177px/2 + 57px);
+    left: calc(50% - 177px/2 + 61px);
     top: calc(50% - 144px/2);
 
     /* White */

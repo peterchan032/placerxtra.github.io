@@ -1,4 +1,4 @@
-console.log('Top Zip Codes!');
+
 /*------------------- function ---------------------*/
 const getIncome = (number, isLocale = false) => {
      if(isLocale) {
@@ -120,7 +120,7 @@ const mapLayers = [
     id:'topZipCode_outline',
     dataSource:mapLayersSource[1],
     type:'line',
-    lineColor:'#333333',
+    lineColor:'#ffffff', //#ffffff
     lineWidth:
     ["interpolate",
       ["linear"],
@@ -134,7 +134,7 @@ const mapLayers = [
       22,
       3
     ],
-    lineOpacity:0.75,
+    lineOpacity:1,
     visibility:'visible'
 },
 {
@@ -146,9 +146,7 @@ const mapLayers = [
     'case',
     ['boolean', ['feature-state', 'hover'], false],0.8, 0.6
     ],
-    fillOutlineColor: [
-    'case',
-    ['boolean', ['feature-state', 'hover'], false],'#bdb7b7','#333333'],
+    fillOutlineColor: "hsla(0, 0%, 0%, 0)",
     visibility:'visible'
 },
 
@@ -358,7 +356,6 @@ var hoveredStateId = null;
 map.on('load', function(){
 
  mapLayersSource.map((layer) => {
-    console.log(layer.src);
     return map.addSource(layer.src, {
       'type':'vector',
       'url':layer.url
