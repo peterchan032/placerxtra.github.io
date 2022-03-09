@@ -1,6 +1,6 @@
 //*--------------------- variable -----------------------*/
 
-const url = "https://peterchan032.github.io/placerxtra.github.io/Data/Untitled.txt";
+const url = "https://peterchan032.github.io/placerxtra.github.io/Data/Untitled_v2.txt";
 
 
 const countyToMSA = "https://peterchan032.github.io/placerxtra.github.io/Data/Fips_CBSA.txt";
@@ -68,6 +68,21 @@ function getCountyFromGeocoding(){
 const center = [getFromJson()?.position.lng, getFromJson()?.position.lat];
 const tradeArea = getFromJson()?.geometry;
 
+const trafficVol = document.getElementById('trafficVol').innerHTML = getFromSession()?.content.map((item,index)=>{
+    return item.trade_area_variant.split(':')[1]}) ?? getFromJson()?.content.map((item,index)=>{
+    return item.trade_area_variant.split(':')[1]});
+
+
+const date = document.getElementById('date').innerHTML = getFromSession()?.date ?? getFromJson().date;
+const dateFn = document.getElementById('date-fn').innerHTML = getFromSession()?.date ?? getFromJson().date;
+
+const miles = document.getElementById('miles').innerHTML = getFromSession()?.max_distance ?? getFromJson()?.max_distance;
+
+const address = document.getElementById('address').innerHTML = getFromSession()?.adderss ?? getFromJson()?.address;
+
+const propertyName = document.getElementById('propertyName').innerHTML = getFromSession()?.name ?? getFromJson().name;
+const propertyNameFnote = document.getElementById('propertyName-fn').innerHTML = getFromSession()?.name ?? getFromJson().name;
+
 const geocodingAPI = `https://geo.fcc.gov/api/census/area?lat=${center[1]}&lon=${center[0]}&censusYear=2010&format=json`;
 
 const countyCode = getCountyFromGeocoding();
@@ -97,24 +112,7 @@ const popD_4 = document.getElementById('popD_4')
   .innerHTML = `<p>${Math.round(popGroup[3][0])} - ${Math.round(popGroup[3][1])}`;
 const popD_5 = document.getElementById('popD_5')
   .innerHTML = `<p>${Math.round(popGroup[4][0])} - ${Math.round(popGroup[4][1])}`;
-/*
 
-const center = [getFromSession()?.position.lng, getFromSession()?.position.lat];
-
-const tradeArea = getFromSession()?.geometry;
-
-const trafficVol = document.getElementById('trafficVol').innerHTML = getFromSession()?.traffic_volume ?? "NA";
-
-
-const date = document.getElementById('date').innerHTML = getFromSession()?.date ?? "test";
-
-const miles = document.getElementById('miles').innerHTML = getFromSession()?.max_distance ?? "NA";
-
-const address = document.getElementById('address').innerHTML = getFromSession()?.adderss ?? "NA";
-
-const propertyName = document.getElementById('propertyName').innerHTML = getFromSession()?.property_name ?? "NA";
-const propertyNameFnote = document.getElementById('propertyName-fn').innerHTML = getFromSession()?.property_name ?? "NA";
-*/
 
 //layers from Mapbox studio
 const mapLayers = [
@@ -223,11 +221,10 @@ const tradeAreaGroups = (tradeArea ?? []).map((item,index) => {
     type:'fill',
     src:`TradeArea_${index}`,
     fillcolor:item.color,
-    fillOpacity:0.5,
+    fillOpacity:0.2,
     visibility:'visible',
     data:{
     "type": "Feature",
-      "properties": {"trafficVol": "40%"},
       "geometry": {
           "type": "MultiPolygon",
           "coordinates": item.geoJson.coordinates
@@ -271,7 +268,7 @@ const mapOptions = {
   container: 'map',
   style: defaultStyles,
   center: center,
-  zoom: 11.7
+  zoom: 11.3
 };
 
 
