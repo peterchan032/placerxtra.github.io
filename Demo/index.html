@@ -2,58 +2,72 @@
 <html lang="en">
 <head>
 	<meta charset="utf-8" />
-    <title>Demographic Interactive Map Layer</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <title>Demographic Interactive Map Layer</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
 
-    <script src='https://api.mapbox.com/mapbox-gl-js/v2.6.1/mapbox-gl.js'></script>
-    <link href='https://api.mapbox.com/mapbox-gl-js/v2.6.1/mapbox-gl.css' rel='stylesheet' />
+  <script src='https://api.mapbox.com/mapbox-gl-js/v2.6.1/mapbox-gl.js'></script>
 
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap" rel="stylesheet">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-    <link
-      href="https://api.tiles.mapbox.com/mapbox-gl-js/v2.3.1/mapbox-gl.css"
-      rel="stylesheet"
-    />
 
-    <link rel="icon" href="https://www.placer.ai/wp-content/uploads/2018/08/favicon-310x310-300x300.png" sizes="192x192">
+  <link href='https://api.mapbox.com/mapbox-gl-js/v2.6.1/mapbox-gl.css' rel='stylesheet' />
 
-     <link rel="stylesheet" href="stylesheet.css"> 
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap" rel="stylesheet">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  <link
+    href="https://api.tiles.mapbox.com/mapbox-gl-js/v2.3.1/mapbox-gl.css"
+    rel="stylesheet"
+  />
+
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
+ integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
+ crossorigin=""/>
+  <!-- Make sure you put this AFTER Leaflet's CSS -->
+  <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
+ integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
+ crossorigin=""></script>
+
+  <link rel="icon" href="https://www.placer.ai/wp-content/uploads/2018/08/favicon-310x310-300x300.png" sizes="192x192">
+
+  <link rel="stylesheet" href="stylesheet.css"> 
+
+
    
 </head>
 
 <body>
-  <div id ='map'></div>
+  <script type="text/javascript">
+  const data = JSON.parse(sessionStorage.getItem("demographic_data"))
+  console.log(data)
+  </script>
 
-  <div class = 'wrapper'>
-    <div class = 'footer'> 
-      <p>*True Trade Area (2021/01/01 to 2021/12/31) for Trader Joe's is based on 70% traffic volume and 15 mi radius. </p>
+  <div id='map'></div>
+
+
+  <div class='wrapper'>
+    <div class='footer'> 
+      <p>*True Trade Area (2021/01/01 to 2021/12/31) for <span id='propertyName-fn'></span> is based on <span id='trafficVol'></span>% traffic volume and <span id='miles'></span> mi radius. </p>
     </div>
-    <div id='header' class='header'>
-      
-     <div class = 'title'>
+    <div id='header' class='header'>   
+     <div class='title'>
       <hr id="verticalLine"/>
       <h3> Key Demographics </h3> 
     </div>
-
-
-    <div class = 'property'>
+    <div class='property'>
       <hr id="verticalLine2"/>
-      <p> 130 Court St, Brooklyn, 11201, NY</p>
-      <img id ='property_logo' src="assets/image/Trader_Joes_Logo.svg" alt="Trader Joes">
+      <h3 id='propertyName'></h3>
+      <p id='address'>1 Mills Cir, Ontario, CA 91764</p>
+     <!-- <img id='property_logo' src="assets/image/Trader_Joes_Logo.svg" alt="Trader Joes"> -->
     </div>
-
-
-      <div class = 'date'>
+      <div class='date'>
         <img id='date-icon' src="assets/image/Calendar-icon-18px.svg" alt="Calendar icon" url=''>
-        <h3>Jan 1st, 2021 - Dec 31st, 2021</h3>
+        <h3 id='date'></h3>
       </div>
 
-    <div class = 'logo'>
+    <div class='logo'>
       <a href="https://www.placer.ai/">
         <img id='logo' src="assets/image/Placer_Logo_ai.svg" alt="Placer.ai" url=''>
       </a>
@@ -62,8 +76,6 @@
 
     </div>
   </div>
-
-  
 
   <div class = 'buttons'>
     <button id = 'HHI'>
@@ -91,11 +103,11 @@
   <h4>Median Household Income</h4>
   </div>
   <div id ='legend-group'>
-    <div id = 'g1'><span style="background-color: #b2d8d8"></span><p>$8,493 - $51,563</p></div>
-    <div id = 'g2'><span style="background-color: #66b2b2"></span><p>$51,563 - $73,633</p></div>
-    <div id = 'g3'><span style="background-color: #007f80"></span><p>$73,633 - $96,322</p></div>
-    <div id = 'g4'><span style="background-color: #006666"></span><p>$96,322 - $128,676</p></div>
-    <div id = 'g5'><span style="background-color: #004c4c"></span><p>$128,676 - $250,000</p></div>
+    <div id = 'g1'><span style="background-color: #b2d8d8"></span><p id='hhi_1'></p></div>
+    <div id = 'g2'><span style="background-color: #66b2b2"></span><p id='hhi_2'></p></div>
+    <div id = 'g3'><span style="background-color: #007f80"></span><p id='hhi_3'></p></div>
+    <div id = 'g4'><span style="background-color: #006666"></span><p id='hhi_4'></p></div>
+    <div id = 'g5'><span style="background-color: #004c4c"></span><p id='hhi_5'></p></div>
     <p>*2019 ACS data at CBG level</p>
   </div>
     </div>
@@ -108,18 +120,17 @@
   <h4>Population Density</h4>
   </div>
   <div id="legend-group">
-  <div id = 'g1'><span style="background-color: #f0f4ff"></span><p>1 - 3,278</p></div>
-  <div id = 'g2'><span style="background-color: #bcd6e7"></span><p>3,278 - 8,539</p></div>
-  <div id = 'g3'><span style="background-color: #6bafd6"></span><p>8,539 - 23,541</p></div>
-  <div id = 'g4'><span style="background-color: #3184bf"></span><p>23,541 - 56,185</p></div>
-  <div id = 'g5'><span style="background-color: #08529b"></span><p>56,185 - 499,356</p></div>
+  <div id = 'g1'><span style="background-color: #f0f4ff"></span><p id='popD_1'></p></div>
+  <div id = 'g2'><span style="background-color: #bcd6e7"></span><p id='popD_2'></p></div>
+  <div id = 'g3'><span style="background-color: #6bafd6"></span><p id='popD_3'></p></div>
+  <div id = 'g4'><span style="background-color: #3184bf"></span><p id='popD_4'></p></div>
+  <div id = 'g5'><span style="background-color: #08529b"></span><p id='popD_5'></p></div>
   <p>*2019 ACS data at CBG level</p>
   </div>
   </div>
   </dv>
-  <script type="text/javascript" src="scripts/data.js"></script>
-  <script type="text/javascript" src="scripts/mapping.js"></script> 
-  
+
+  <script src="scripts/main.js"></script> 
 </body>
 
 </html>

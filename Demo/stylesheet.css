@@ -144,6 +144,21 @@ margin-top: 0px;
 
 }
 
+.property h3{
+    position: absolute;
+    left: 21px;
+    top: 0.68%;
+
+    font-family: 'Open Sans',sans-serif;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 23px;
+
+    color: #4D4D4D;
+
+    margin-right: 5px;
+}
+
 .property #verticalLine2 {
     position: absolute;
     display: inline-block;

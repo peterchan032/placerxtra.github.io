@@ -112,6 +112,11 @@ const mapLayers = [
 ]
 
 
+const data = require('scripts/data.json');
+console.log(data);
+
+
+
 
 /* trade area should also coming from session storage 
 const tradeArea = {
