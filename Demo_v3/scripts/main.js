@@ -8,8 +8,8 @@ const HHI_MSA_group = "https://peterchan032.github.io/placerxtra.github.io/Data/
 const popD_MSA_group = "https://peterchan032.github.io/placerxtra.github.io/Data/popDensity_CBSA_Groups_v2.txt";
 const hv_MSA_group = "https://peterchan032.github.io/placerxtra.github.io/Data/HV_CBSA_Groups.txt";
 
-let center = [-118.41897722806527, 34.05872303368488];
-let tradeArea = null;
+let center = [getFromJson()?.position.lng,getFromJson()?.position.lat];
+let tradeArea = getFromJson().geometry;
 
 const getFromJson = ()=>{
   let items = JSON.parse($.getJSON({
@@ -98,9 +98,10 @@ function handleMessages(event) {
 waitForMessages('placer-dashboard', handleMessages)
 
 
-center = [getFromSession()?.position.lng, getFromSession()?.position.lat];
+center = [getFromSession()?.position.lng ?? getFromJson()?.position.lng,
+ getFromSession()?.position.lat ?? getFromJson()?.position.lat];
 
-tradeArea = getFromSession()?.geometry;
+tradeArea = getFromSession()?.geometry ?? getFromJson().geometry;
 
 //const date = document.getElementById('date').innerHTML = getFromSession()?.date ?? getFromJson().date;
 //const dateFn = document.getElementById('date-fn').innerHTML = getFromSession()?.date ?? getFromJson().date;
