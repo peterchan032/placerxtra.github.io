@@ -1,0 +1,18 @@
+<svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g id="Calendar-icon-18px">
+<g id="Calendar icon">
+<path id="Fill 1" fill-rule="evenodd" clip-rule="evenodd" d="M13.5 4.875C12.947 4.875 12.5 4.427 12.5 3.875C12.5 3.323 12.947 2.875 13.5 2.875C14.053 2.875 14.5 3.323 14.5 3.875C14.5 4.427 14.053 4.875 13.5 4.875ZM4.5 4.875C3.947 4.875 3.5 4.427 3.5 3.875C3.5 3.323 3.947 2.875 4.5 2.875C5.053 2.875 5.5 3.323 5.5 3.875C5.5 4.427 5.053 4.875 4.5 4.875ZM17 1.375H1C0.447 1.375 0 1.823 0 2.375V6.125H18V2.375C18 1.823 17.553 1.375 17 1.375Z" fill="#D0D0D0"/>
+<path id="Stroke 3" d="M3.4668 9.8335H5.4668" stroke="#49565D" stroke-width="0.75" stroke-linecap="round"/>
+<path id="Stroke 5" d="M8.0293 9.8335H10.0293" stroke="#49565D" stroke-width="0.75" stroke-linecap="round"/>
+<path id="Stroke 7" d="M12.5918 9.8335H14.5918" stroke="#49565D" stroke-width="0.75" stroke-linecap="round"/>
+<path id="Stroke 9" d="M3.4668 14.1353H5.4668" stroke="#49565D" stroke-width="0.75" stroke-linecap="round"/>
+<path id="Stroke 11" d="M8.0293 14.1353H10.0293" stroke="#49565D" stroke-width="0.75" stroke-linecap="round"/>
+<path id="Stroke 13" d="M12.5918 14.1353H14.5918" stroke="#49565D" stroke-width="0.75" stroke-linecap="round"/>
+<rect id="Rectangle" x="0.375" y="1.375" width="17.25" height="16.25" rx="0.625" stroke="#49565D" stroke-width="0.75"/>
+<path id="Stroke 17" d="M0 6.125H18" stroke="#49565D" stroke-width="0.75"/>
+<path id="Stroke 19" d="M7.5 4.375H10.5" stroke="#49565D" stroke-width="0.75" stroke-linecap="round"/>
+<path id="Stroke 21" d="M4.5 3.875V0.375" stroke="#49565D" stroke-width="0.75" stroke-linecap="round"/>
+<path id="Stroke 23" d="M13.5 3.875V0.375" stroke="#49565D" stroke-width="0.75" stroke-linecap="round"/>
+</g>
+</g>
+</svg>

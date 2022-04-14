@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8" />
+  <title>Demographic Interactive Map</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+
+  <script src='https://api.mapbox.com/mapbox-gl-js/v2.6.1/mapbox-gl.js'></script>
+
+
+  <link href='https://api.mapbox.com/mapbox-gl-js/v2.6.1/mapbox-gl.css' rel='stylesheet' />
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap" rel="stylesheet">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  <link
+    href="https://api.tiles.mapbox.com/mapbox-gl-js/v2.3.1/mapbox-gl.css"
+    rel="stylesheet"
+  />
+
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
+ integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
+ crossorigin=""/>
+  <!-- Make sure you put this AFTER Leaflet's CSS -->
+  <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
+ integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
+ crossorigin=""></script>
+
+  <link rel="icon" href="https://www.placer.ai/wp-content/uploads/2018/08/favicon-310x310-300x300.png" sizes="192x192">
+
+  <link rel="stylesheet" href="stylesheet.css"> 
+
+
+   
+</head>
+
+<body>
+
+  <div id='map'></div>
+
+
+  <div class='wrapper'>
+    <!--
+    <div class='footer'> 
+      <p>*True Trade Area (<span id='date-fn'></span>) for <span id='propertyName-fn'></span> is based on <span id='trafficVol'></span>% traffic volume and <span id='miles'></span> mi radius. </p>
+    </div>
+-->
+<!--
+    <div id='header' class='header'>   
+     <div class='title'>
+      <hr id="verticalLine"/>
+      <h3> Key Demographics </h3> 
+    </div>
+    <div class='property'>
+      <hr id="verticalLine2"/>
+      <h3 id='propertyName'></h3>
+      <p id='address'></p>
+    </div>
+      <div class='date'>
+        <img id='date-icon' src="assets/image/Calendar-icon-18px.svg" alt="Calendar icon" url=''>
+        <h3 id='date'></h3>
+      </div>
+
+    <div class='logo'>
+      <a href="https://www.placer.ai/">
+        <img id='logo' src="assets/image/Placer_Logo_ai.svg" alt="Placer.ai" url=''>
+      </a>
+    </div>
+      
+
+    </div>
+  -->
+  </div>
+
+  <div class = 'buttons'>
+    <button id = 'HHI'>
+      <img id='HHI-icon' src="assets/image/coin-icon-18px.svg" alt="HHI-icon" url=''>
+      <h4>Median HHI</h4>
+    </button>
+    <button id= 'PopD'>
+      <img id='pop-icon' src="assets/image/ppl_icon.svg" alt="pop-icon" url=''>
+      <h4>Population Density</h4>
+    </button>
+<!--
+    <button id= 'Ethnicity'>
+      <img id='Ethnicity-icon' src="assets/image/Ethnicity-icon-18px.svg" alt="Ethnicity-icon" url=''>
+      <h4>Ethnicity</h4>
+    </button>
+-->
+    <button id= 'HV'>
+      <img id='HV-icon' src="assets/image/hv_icon.svg" alt="hv-icon" url=''>
+      <h4>Median House Value</h4>
+    </button>
+
+  </div>
+
+  <div id="HHI-legend" class="HHI-legend">
+  <div id='legend-header'>
+  <h4>Median Household Income</h4>
+  <p>Aggregated by Census Block Groups (2019)</p>
+  </div>
+  <div id='legend-group'>
+    <div id = 'g1'><span style="background-color: #004c4c;border-style: solid;border-width: thin"></span><p id='hhi_5'></p></div>
+    <div id = 'g2'><span style="background-color: #006666; border-style: solid;border-width: thin"></span><p id='hhi_4'></p></div>
+    <div id = 'g3'><span style="background-color: #007f80; border-style: solid;border-width: thin"></span><p id='hhi_3'></p></div>
+    <div id = 'g4'><span style="background-color: #66b2b2;border-style: solid;border-width: thin"></span><p id='hhi_2'></p></div>
+    <div id='g5'><span style="background-color: #b2d8d8;border-style: solid;border-width: thin"></span><p id='hhi_1'></p></div> 
+    <div id = 'g6'><span class='tradeAreaLegend'></span><p>True Trade Area</p></div>
+    <p></p>
+  </div>
+  </div>
+
+  <div id="popD-legend" class="popD-legend">
+  <div id='legend-header'>
+  <h4>Population Density</h4>
+  <p>Aggregated by Census Block Groups (2019)</p>
+  </div>
+  <div id='legend-group'>
+    <div id = 'g1'><span style="background-color: #08529b;border-style: solid;border-width: thin"></span><p id='popD_5'></p></div>
+    <div id = 'g2'><span style="background-color: #3184bf; border-style: solid;border-width: thin"></span><p id='popD_4'></p></div>
+    <div id = 'g3'><span style="background-color: #6bafd6; border-style: solid;border-width: thin"></span><p id='popD_3'></p></div>
+    <div id = 'g4'><span style="background-color: #bcd6e7;border-style: solid;border-width: thin"></span><p id='popD_2'></p></div>
+    <div id='g5'><span style="background-color: #f0f4ff;border-style: solid;border-width: thin;border-radius: 2px"></span><p id='popD_1'></p></div> 
+    <div id = 'g6'><span class='tradeAreaLegend'></span><p>True Trade Area</p></div>
+    <p></p>
+  </div>
+  </div>
+
+    <div id="hv-legend" class="hv-legend">
+  <div id='legend-header'>
+  <h4>Median House Value</h4>
+  <p>Aggregated by Census Block Groups (2019)</p>
+  </div>
+  <div id='legend-group'>
+    <div id = 'g1'><span style="background-color: #b13f64;border-style: solid;border-width: thin"></span><p id='hv_5'></p></div>
+    <div id = 'g2'><span style="background-color: #dd686c; border-style: solid;border-width: thin"></span><p id='hv_4'></p></div>
+    <div id = 'g3'><span style="background-color: #ea8171; border-style: solid;border-width: thin"></span><p id='hv_3'></p></div>
+    <div id = 'g4'><span style="background-color: #f19c7c;border-style: solid;border-width: thin"></span><p id='hv_2'></p></div>
+    <div id='g5'><span style="background-color: #f6d2a9;border-style: solid;border-width: thin"></span><p id='hv_1'></p></div> 
+    <div id = 'g6'><span class='tradeAreaLegend'></span><p>True Trade Area</p></div>
+    <p></p>
+  </div>
+  </div>
+
+  </div>
+
+  <script src="scripts/main.js"></script> 
+</body>
+
+</html>

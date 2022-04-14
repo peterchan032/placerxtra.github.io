@@ -1,0 +1,781 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&display=swap');
+
+
+/* Main site body */
+.wrapper {
+    width: 100%;
+    margin: 0 auto;
+    position: relative; /* Ensure absolute positioned child elements are relative to this*/
+}
+
+/*--------------header------------------*/
+.header {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    padding: 0px;
+
+    position: static;
+    width: 811px;
+    height: 68px;
+    left: 0px;
+    top: 0px;
+}
+
+.title {
+position: fixed;
+width: 261px;
+height: 68px;
+left: 0px;
+top: 0px;
+line-height: 34px;
+/* identical to box height, or 148% */
+
+display: flex;
+flex-direction: row;
+align-items: center;
+padding: 15px 32px 15px 16px;
+}
+
+.title h3{
+position: absolute;
+top:  24px;
+left:  16px;
+font-family: 'Open Sans',sans-serif;
+font-style: normal;
+font-weight: bold;
+font-size: 23px;
+
+color: #4D4D4D;
+
+margin-top: 0px;
+
+}
+
+
+.title #verticalLine {
+    position: absolute;
+    display: inline-block;
+    width: 50%;
+    height: 0px;
+    left: 193px;
+    top: 0px;  
+
+    border: 1px solid #E5E5E5;
+    transform: rotate(-90deg);
+
+    /* Inside auto layout */
+
+    flex: none;
+    order: 1;
+    flex-grow: 0;
+    margin: 0px 0px;
+}
+
+.property {
+    /* Auto layout */
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 12px 20px;
+
+    position: fixed;
+    width: 251px;
+    height: 68px;
+    left: 260px;
+    top: 0px;
+
+    /* white */
+
+    background: #FFFFFF;
+
+    /* Inside auto layout */
+
+    flex: none;
+    order: 2;
+    align-self: stretch;
+    flex-grow: 0;
+    margin: 0px 0px;
+}
+
+
+
+.property p{
+    position: absolute;
+    width: 210px;
+    height: 20px;
+    left: 24px;
+    top: 36px;
+
+    /* Bodyy */
+
+    font-family: Open Sans;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 10px;
+    line-height: 12px;
+    /* identical to box height, or 154% */
+
+
+    /* text/primary */
+
+    color: #333333;
+
+
+    /* Inside auto layout */
+
+    flex: none;
+    order: 1;
+    flex-grow: 0;
+    margin: 4px 0px;
+}
+
+.property #property_logo {
+    position: absolute;
+    left: 21px;
+    width: 146.08px;
+    height: auto;
+    display: inline-block;
+    margin-right: 5px;
+    top: 21.88%;
+
+}
+
+#propertyName{
+    position: absolute;
+    left: 16px;
+    top: 0%;
+
+    font-family: 'Open Sans',sans-serif;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 20px;
+
+    color: #4D4D4D;
+
+    margin: 15px 5px 10px 5px;
+}
+
+.property #verticalLine2 {
+    position: absolute;
+    display: inline-block;
+    width: 66px;
+    height: 0px;
+    left: 215px;
+
+    border: 1px solid #E5E5E5;
+    transform: rotate(-90deg);
+
+    /* Inside auto layout */
+
+    flex: none;
+    order: 1;
+    flex-grow: 0;
+    margin: 0px 0px;
+}
+
+
+
+
+
+
+.date {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 22px 24px;
+
+    position: fixed;
+    width: 240px;
+    height: 64px;
+    left: 514px;
+    top: 0px;
+
+    /* white */
+
+    background: #FFFFFF;
+
+    /* Inside auto layout */
+
+    flex: none;
+    order: 4;
+    align-self: stretch;
+    flex-grow: 0;
+    margin: 0px 0px;
+}
+
+.date #date-icon {
+    position: absolute;
+    width: 18px;
+    height: 18px;
+    left: 25px;
+    top: 25px;
+
+
+    /* Inside auto layout */
+
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+    margin: 0px 10px;
+}
+
+.date h3{
+    position: absolute;
+    width: 180px;
+    height: 20px;
+    left: 66px;
+    top: 25px;
+    margin-top: 0px;
+
+    font-family: Open Sans;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 13px;
+    line-height: 20px;
+/* identical to box height, or 154% */
+
+
+    color: #333333;
+}
+
+.logo {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 12px 24px;
+
+    position: absolute;
+
+    width: 178.77px;
+    height: 68px;
+    right: 1%;
+    top: 0px;
+}
+.logo #logo{  
+    position: absolute;
+    width: 130.77px;
+    height: 40px;
+    left: 24px;
+    top: 14px;
+}
+
+/*---------------footer-------------*/
+.footer {
+    position: fixed;
+    display: inline-block;
+    bottom: 0px;
+    height: 15px;
+    width: auto;
+
+    /* background/Background/Normal */
+
+    background: #FFFFFF;
+
+    font-family: font-family: 'Open Sans', sans-serif;
+    font-size: 10px;
+    line-height: 15px;
+    margin-top: 0px;
+    margin-left: 0px;
+    margin-bottom: 0px;
+    font-weight: 600;
+
+}
+
+.mapboxgl-ctrl-logo {
+    position: absolute;
+    left: 10px;
+    bottom: 11px;
+}
+
+
+
+/*--------------------------------*/
+#map {
+    position: absolute;
+    top: 0px;
+    bottom: 0;
+    width: 100%;
+}
+
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: font-family: 'Open Sans', sans-serif;
+      }
+
+h1 {
+    font-size: 20px;
+    line-height: 30px;
+    font-weight: bold;
+    margin-top: 5px;
+    }
+
+a {
+    text-decoration: none;
+    color: #2dc4b2;
+   }
+
+
+/*-----------------layer selections-----------*/
+
+    .buttons{
+        /* Auto layout */
+
+        display: flex;
+        flex-direction: row;
+        align-items: flex-start;
+        padding: 0px;
+
+        position: absolute;
+
+        height: 30px;
+        left: 0.5%;
+        top: 8px;
+
+
+        /* Inside auto layout */
+
+        flex: none;
+        order: 2;
+        flex-grow: 0;
+        margin: 0px 0px;
+        border-radius: 3px;
+    }
+
+
+    .buttons h4{
+        /* font */
+
+        font-family: Open Sans;
+        font-style: normal;
+        font-weight: 600;
+        font-size: 13px;
+        line-height: 20px;
+        /* identical to box height, or 154% */
+
+
+        color: #333333;
+
+        text-align: left;
+
+        /* Inside auto layout */
+
+        flex: none;
+        order: 1;
+        flex-grow: 0;
+        margin: 0px 8px;
+    }
+
+
+    .buttons #HHI, .buttons #PopD, 
+    .buttons #Ethnicity, .buttons #HV {
+        /* Pill */
+
+        /* Auto layout */
+
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        padding: 0px 12px;
+
+        width: auto;
+        height: 50px;
+        left: 10px;
+        /* white */
+
+        background: #FFFFFF;
+        /* lines-outlines/divider-section */
+
+        border: 1px solid #D0D0D0;
+        box-sizing: border-box;
+
+        border-radius: 4px;
+
+        /* Inside auto layout */
+
+        flex: none;
+        order: 3;
+        flex-grow: 0;
+        margin: 0px 2px;
+
+    }
+
+
+    #HHI:focus, #PopD:focus,
+    #Ethnicity:focus, #HV:focus {
+        background-color: #49565D;  
+        color: white;
+    }
+
+    #HHI:focus >h4, #PopD:focus >h4,
+    #Ethnicity:focus >h4, #HV:focus >h4{
+        color: white;  
+    }
+
+    #HHI:hover, #PopD:hover, #Ethnicity:hover, #HV:hover  {
+        background-color: #49565D;
+
+    }
+
+    #HHI:hover >h4, #PopD:hover >h4, #Ethnicity:hover >h4, #HV:hover >h4  {
+        color: white; 
+    }
+
+    #HHI:hover >img,#PopD:hover >img, #Ethnicity:hover >img, #HV:hover >img  {
+        filter: invert(100%) sepia(100%) saturate(0%) hue-rotate(126deg) brightness(104%) contrast(102%)    
+    }
+
+   
+    #HHI:focus >img,#PopD:focus >img, #Ethnicity:focus >img, #HV:focus >img  {
+        filter: invert(100%) sepia(100%) saturate(0%) hue-rotate(126deg) brightness(104%) contrast(102%)    
+    }
+
+
+
+/*------------------legend ----------------------*/
+.legend {
+    background-color: #fff;
+    border-radius: 3px;
+    left: 12px;
+    bottom: 6%;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+    font-family: 'Open Sans';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 11px;
+    line-height: 16px;
+    padding: 10px;
+    position: absolute;
+    
+    z-index: 1;
+}
+
+.popD-legend, .HHI-legend, .hv-legend {
+    background-color: #fff;
+    border-radius: 3px;
+    width: 298px;
+    height: 168px;
+    left: 1.1%;
+    bottom: 6%;
+    font-family: 'Open Sans';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 11px;
+    line-height: 16px;
+    position: absolute;
+}
+
+
+#legend-header {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 12px 16px 0px;
+
+    position: absolute;
+    width: 130px;
+    height: 168px;
+
+    /* background/hover */
+
+    background: #F2F2F2;
+    border-radius: 4px 0px 0px 4px;
+
+    /* Inside auto layout */
+
+    flex: none;
+    order: 0;
+    align-self: stretch;
+    flex-grow: 0;
+    margin: 0px 0px;
+}
+
+#legend-header h4{
+    position: static;
+    height: 60px;
+    left: 16px;
+    right: -51px;
+    top: calc(50% - 60px/2 - 28px);
+
+    font-family: Open Sans;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 17px;
+    line-height: 20px;
+    /* or 118% */
+
+
+    /* Text/Primary */
+
+    color: #333333;
+
+
+    /* Inside auto layout */
+
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+    margin: 0px 0px;
+}
+
+#legend-header p{
+    position: absolute;
+    width: 98px;
+    height: 62px;
+    left: calc(50% - 98px/2);
+    top: calc(50% - 62px/2 + 19px);
+
+    /* Italic Headline */
+
+    font-family: 'Open Sans';
+    font-style: italic;
+    font-weight: 400;
+    font-size: 13px;
+    line-height: 18px;
+    /* or 138% */
+
+    display: flex;
+    align-items: center;
+    /* or 138% */
+
+    display: flex;
+    align-items: center;
+
+    color: #333333;
+
+
+    /* Inside auto layout */
+
+    flex: none;
+    order: 1;
+    flex-grow: 0;
+    margin: 0px 0px;
+}
+
+#legend-group {
+    /* Auto layout */
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 0px;
+
+    position: absolute;
+    width: 150px;
+    height: 144px;
+    left: calc(50% - 177px/2 + 70px);
+    top: 0px;
+
+    /* White */
+
+    background: #FFFFFF;
+    border-radius: 0px 4px 4px 0px;
+
+    /* Inside auto layout */
+
+    flex: none;
+    order: 1;
+    align-self: stretch;
+    flex-grow: 0;
+    margin: 12px 16px;
+}
+
+#legend-group #g1 {
+    display: flex;
+    flex-direction: row;
+    align-items: left;
+    padding: 0px;
+
+    position: static;
+    left: 24px;
+    right: 0px;
+    height: 16px;
+    top: 0%;
+    bottom: 0%;
+    /* Inside auto layout */
+
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+    margin: 4px 0px;
+}
+
+#legend-group #g2 {
+    display: flex;
+    flex-direction: row;
+    align-items: left;
+    padding: 0px;
+
+    position: static;
+    width: auto;
+    height: 16px;
+    left: 0px;
+    top: 32px;
+    /* Inside auto layout */
+
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+    margin: 4px 0px;
+}
+
+#legend-group #g3 {
+    display: flex;
+    flex-direction: row;
+    align-items: left;
+    padding: 0px;
+
+    position: static;
+    width: auto;
+    height: 16px;
+    left: 0px;
+    top: 64px;
+    /* Inside auto layout */
+
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+    margin: 4px 0px;
+}
+
+#legend-group #g4 {
+    display: flex;
+    flex-direction: row;
+    align-items: left;
+    padding: 0px;
+
+    position: static;
+    width: auto;
+    height: 16px;
+    left: 0px;
+    top: 96px;
+    /* Inside auto layout */
+
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+    margin: 4px 0px;
+}
+
+#legend-group #g5 {
+    display: flex;
+    flex-direction: row;
+    align-items: left;
+    padding: 0px;
+
+    position: static;
+    width: auto;
+    height: 16px;
+    left: 0px;
+    top: 128px;
+    /* Inside auto layout */
+
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+    margin: 4px 0px;
+}
+
+#legend-group #g6 {
+    display: flex;
+    flex-direction: row;
+    align-items: left;
+    padding: 0px;
+
+    position: static;
+    width: auto;
+    height: auto;
+    left: 0px;
+    top: 128px;
+    /* Inside auto layout */
+
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+    margin: 4px 0px;
+}
+
+
+.HHI-legend p, .popD-legend p, .hv-legend p {
+    /* Graph/Y Axis */
+
+    font-family: 'Open Sans';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 11px;
+    line-height: 16px;
+    display: flex;
+    align-items: center;
+
+    /* Text/Primary */
+
+    color: #333333;
+
+    /* Inside auto layout */
+
+    flex: none;
+    order: 1;
+    flex-grow: 0;
+    margin: 0px 0px;
+    width: 123px;
+}
+ 
+.HHI-legend div span, .popD-legend div span, .hv-legend div span {
+    border-radius: 2px;
+    display: inline-block;
+    height: 16px;
+    margin-right: 8px;
+    width: 16px;
+    padding: 5px;
+
+}
+
+
+
+
+/*--------------------Pop up ----------------------*/
+
+
+.mapboxgl-popup-content {
+  font: 400 15px/16px 'Open Sans', sans-serif;
+  padding: 5px;
+  margin-bottom: -1px;
+  width: 150px;
+}
+
+.mapboxgl-popup-content h3 {
+ /* background: #5E63E5; */
+  color: #4D4D4D;
+  margin-top: 1px;
+  border-radius: 2px 2px 0 0;
+  font-weight: 400;
+  font-size: 15px;
+  padding: 4px;
+
+}
+
+.mapboxgl-popup-content h4 {
+  margin: 0;
+  padding: 2px;
+  font-weight: 600;
+  justify-content: center;
+  align-items: center;
+  font-size: 13px;
+}
+
+.mapboxgl-popup-content div {
+  padding: 0px;
+}
+
+
+
+
+
+
