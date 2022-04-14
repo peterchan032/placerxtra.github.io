@@ -8,8 +8,8 @@ const HHI_MSA_group = "https://peterchan032.github.io/placerxtra.github.io/Data/
 const popD_MSA_group = "https://peterchan032.github.io/placerxtra.github.io/Data/popDensity_CBSA_Groups_v2.txt";
 const hv_MSA_group = "https://peterchan032.github.io/placerxtra.github.io/Data/HV_CBSA_Groups.txt";
 
-let center = [getFromJson()?.position.lng,getFromJson()?.position.lat];
-let tradeArea = getFromJson().geometry;
+let center = [-118.41897722806527, 34.05872303368488];
+let tradeArea = null;
 
 const getFromJson = ()=>{
   let items = JSON.parse($.getJSON({
